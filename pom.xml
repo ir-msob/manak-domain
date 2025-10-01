@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ir.msob.manak.parent</groupId>
+        <artifactId>manak-parent</artifactId>
+        <version>0.1.0</version>
+    </parent>
+    <groupId>ir.msob.manak.domain</groupId>
+    <artifactId>manak-domain</artifactId>
+    <version>${manak-domain.version}</version>
+    <name>manak-domain</name>
+    <description>manak domain</description>
+    <packaging>pom</packaging>
+    <url>http://www.msob.ir</url>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Manak</name>
+            <email>ask@msob.ir</email>
+            <organization>msob.ir</organization>
+            <organizationUrl>http://www.msob.ir</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection></connection>
+        <developerConnection></developerConnection>
+        <url></url>
+    </scm>
+    <properties>
+        <!-- Manak Versions -->
+        <manak-parent.version>0.1.0</manak-parent.version>
+        <manak-core.version>0.1.0</manak-core.version>
+        <manak-domain.version>0.1.0</manak-domain.version>
+
+        <!-- Maven Plugins -->
+        <resolve-parent-version-maven-plugin.version>0.8</resolve-parent-version-maven-plugin.version>
+    </properties>
+    <modules>
+        <module>model</module>
+        <module>service</module>
+        <module>test</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Jima BOM -->
+            <dependency>
+                <groupId>ir.msob.manak.parent</groupId>
+                <artifactId>manak-bom</artifactId>
+                <version>${manak-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+  </dependencyManagement>
+<build>
+<plugins>
+    <!-- Resolve Parent Version Plugin -->
+    <plugin>
+        <groupId>com.hbakkum.maven.plugins</groupId>
+        <artifactId>resolve-parent-version-maven-plugin</artifactId>
+        <version>${resolve-parent-version-maven-plugin.version}</version>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>resolve-parent-version</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+</plugins>
+</build>
+</project>
