@@ -12,7 +12,12 @@
     <name>test</name>
     <description>test</description>
     <dependencies>
-
+        <!-- Manak -->
+        <dependency>
+            <groupId>ir.msob.manak.core</groupId>
+            <artifactId>core-test</artifactId>
+            <version>${manak-core.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

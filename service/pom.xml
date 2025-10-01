@@ -17,6 +17,11 @@
             <artifactId>domain-model</artifactId>
             <version>${manak-domain.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ir.msob.manak.core</groupId>
+            <artifactId>core-service</artifactId>
+            <version>${manak-core.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
