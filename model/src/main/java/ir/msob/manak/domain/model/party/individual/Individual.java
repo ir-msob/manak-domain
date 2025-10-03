@@ -20,13 +20,13 @@ import java.io.Serial;
 @Document(collection = Individual.DOMAIN_NAME)
 @DomainInfo(serviceName = Individual.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Individual.DOMAIN_NAME_WITH_HYPHEN)
 public class Individual extends Party {
-    @Serial
-    private static final long serialVersionUID = -8938843863555452002L;
-    
     @Transient
     public static final String DOMAIN_NAME = "Individual";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "individual";
+    @Serial
+    private static final long serialVersionUID = -8938843863555452002L;
+
     public Individual(String id, String name, String description) {
         super(id, name, description);
     }

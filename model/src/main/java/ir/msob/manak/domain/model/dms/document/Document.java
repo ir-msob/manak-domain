@@ -12,14 +12,22 @@ import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.childdomain.ChildDomain;
 import ir.msob.jima.core.commons.domain.DomainInfo;
+import ir.msob.manak.domain.model.dms.document.attachment.Attachment;
+import ir.msob.manak.domain.model.dms.document.attachment.AttachmentCriteria;
+import ir.msob.manak.domain.model.dms.documentspecification.DocumentSpecification;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.io.Serial;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+/**
+ * Represents a document entity in the DMS (Document Management System).
+ * Contains metadata, tags, specification, attachments, and related child domains.
+ */
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -36,26 +44,77 @@ public class Document extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "document";
 
+    /**
+     * The unique name of the document.
+     */
     @NotBlank
     private String name;
+    /**
+     * The key of the document.
+     */
+    private String key;
+    /**
+     * The description of the document.
+     */
     private String description;
+    /**
+     * Tags associated with the document.
+     */
+    @Singular
+    private SortedSet<String> tags = new TreeSet<>();
 
+    /**
+     * The specification describing the storage and connection details for this document.
+     */
+    @DBRef(lazy = true)
+    private DocumentSpecification specification;
+
+    /**
+     * Attachments related to this document.
+     */
+    @Singular
+    @ChildDomain(cdClass = Attachment.class, ccClass = AttachmentCriteria.class)
+    private SortedSet<Attachment> attachments = new TreeSet<>();
+
+    /**
+     * Characteristics of the document.
+     */
+    @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
+    /**
+     * Contact mediums associated with the document.
+     */
+    @Singular
     @ChildDomain(cdClass = ContactMedium.class, ccClass = ContactMediumCriteria.class)
     private SortedSet<ContactMedium> contactMediums = new TreeSet<>();
 
+    /**
+     * Object validations for the document.
+     */
+    @Singular
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 
+    /**
+     * Related actions for the document.
+     */
+    @Singular
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
-    public Document(String id, String name, String description) {
+    @Builder
+    public Document(String id, String name, String description, SortedSet<String> tags, SortedSet<Attachment> attachments, SortedSet<Characteristic> characteristics, SortedSet<ContactMedium> contactMediums, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
         super(id);
         this.name = name;
         this.description = description;
+        this.tags = tags;
+        this.attachments = attachments;
+        this.characteristics = characteristics;
+        this.contactMediums = contactMediums;
+        this.objectValidations = objectValidations;
+        this.relatedActions = relatedActions;
     }
 
     public enum FN {

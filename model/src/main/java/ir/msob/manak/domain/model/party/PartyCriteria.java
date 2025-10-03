@@ -1,8 +1,8 @@
 package ir.msob.manak.domain.model.party;
 
-import ir.msob.manak.core.model.jima.domain.CriteriaAbstract;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.filter.Filter;
+import ir.msob.manak.core.model.jima.domain.CriteriaAbstract;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

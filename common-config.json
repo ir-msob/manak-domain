@@ -1,215 +1,215 @@
 {
-    "projectName": "Manak",
-    "packagePath": "ir.msob",
-    "projectVersion": "0.1.0",
-    "databaseType": "Mongo",
-    "idClassPath": "java.lang.String",
-    "security": "Keycloak",
-    "features": "restful,kafka",
-    "jimaVersion": "1.3.1",
-    "resources": {
-        "restful": {
-            "domain": {
-                "countAll": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseCountAllDomainCrudRestResource<D, DTO, C, R, S>",
-                "count": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseCountDomainCrudRestResource<D, DTO, C, R, S>",
-                "getById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetByIdDomainCrudRestResource<D, DTO, C, R, S>",
-                "getMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetManyDomainCrudRestResource<D, DTO, C, R, S>",
-                "getOne": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetOneDomainCrudRestResource<D, DTO, C, R, S>",
-                "getPage": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetPageDomainCrudRestResource<D, DTO, C, R, S>",
-                "getStream": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetStreamDomainCrudRestResource<D, DTO, C, R, S>",
-                "deleteById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteByIdDomainCrudRestResource<D, DTO, C, R, S>",
-                "delete": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteDomainCrudRestResource<D, DTO, C, R, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteManyDomainCrudRestResource<D, DTO, C, R, S>",
-                "editById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditByIdDomainCrudRestResource<D, DTO, C, R, S>",
-                "edit": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditDomainCrudRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditManyDomainCrudRestResource<D, DTO, C, R, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseSaveDomainCrudRestResource<D, DTO, C, R, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseSaveManyDomainCrudRestResource<D, DTO, C, R, S>",
-                "updateById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateByIdDomainCrudRestResource<D, DTO, C, R, S>",
-                "update": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateDomainCrudRestResource<D, DTO, C, R, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateManyDomainCrudRestResource<D, DTO, C, R, S>"
-            },
-            "characteristic": {
-                "deleteByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.DeleteByIdOrKeyCharacteristicRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.DeleteManyCharacteristicRestResource<DTO, C, S>",
-                "editByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.EditByIdOrKeyCharacteristicRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.EditManyCharacteristicRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveCharacteristicRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveManyCharacteristicRestResource<DTO, C, S>",
-                "updateByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.UpdateByIdOrKeyCharacteristicRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveManyCharacteristicRestResource<DTO, C, S>"
-            },
-            "relatedParty": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.DeleteByIdOrRelatedIdRelatedPartyRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.DeleteManyRelatedPartyRestResource<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.EditByIdOrRelatedIdRelatedPartyRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.EditManyRelatedPartyRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.SaveRelatedPartyRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.SaveManyRelatedPartyRestResource<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.UpdateByIdOrRelatedIdRelatedPartyRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.UpdateManyRelatedPartyRestResource<DTO, C, S>"
-            },
-            "relatedDomain": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.DeleteByIdOrRelatedIdRelatedDomainRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.DeleteManyRelatedDomainRestResource<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.EditByIdOrRelatedIdRelatedDomainRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.EditManyRelatedDomainRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.SaveRelatedDomainRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.SaveManyRelatedDomainRestResource<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.UpdateByIdOrRelatedIdRelatedDomainRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.UpdateManyRelatedDomainRestResource<DTO, C, S>"
-            },
-            "relatedProcess": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.DeleteByIdOrRelatedIdRelatedProcessRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.DeleteManyRelatedProcessRestResource<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.EditByIdOrRelatedIdRelatedProcessRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.EditManyRelatedProcessRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.SaveRelatedProcessRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.SaveManyRelatedProcessRestResource<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.UpdateByIdOrRelatedIdRelatedProcessRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.UpdateManyRelatedProcessRestResource<DTO, C, S>"
-            },
-            "relatedIntegration": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.DeleteByIdOrRelatedIdRelatedIntegrationRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.DeleteManyRelatedIntegrationRestResource<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.EditByIdOrRelatedIdRelatedIntegrationRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.EditManyRelatedIntegrationRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.SaveRelatedIntegrationRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.SaveManyRelatedIntegrationRestResource<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.UpdateByIdOrRelatedIdRelatedIntegrationRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.UpdateManyRelatedIntegrationRestResource<DTO, C, S>"
-            },
-            "contactMedium": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.DeleteByIdOrNameContactMediumRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.DeleteManyContactMediumRestResource<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.EditByIdOrNameContactMediumRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.EditManyContactMediumRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.SaveContactMediumRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.SaveManyContactMediumRestResource<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.UpdateByIdOrNameContactMediumRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.UpdateManyContactMediumRestResource<DTO, C, S>"
-            },
-            "objectValidation": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.DeleteByIdOrNameObjectValidationRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.DeleteManyObjectValidationRestResource<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.EditByIdOrNameObjectValidationRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.EditManyObjectValidationRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.SaveObjectValidationRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.SaveManyObjectValidationRestResource<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.UpdateByIdOrNameObjectValidationRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.UpdateManyObjectValidationRestResource<DTO, C, S>"
-            },
-            "relatedAction": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.DeleteByIdOrNameRelatedActionRestResource<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.DeleteManyRelatedActionRestResource<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.EditByIdOrNameRelatedActionRestResource<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.EditManyRelatedActionRestResource<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.SaveRelatedActionRestResource<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.SaveManyRelatedActionRestResource<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.UpdateByIdOrNameRelatedActionRestResource<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.UpdateManyRelatedActionRestResource<DTO, C, S>"
-            }
-        },
-        "kafka": {
-            "domain": {
-                "countAll": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseCountAllDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "count": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseCountDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "getById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "getMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetManyDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "getOne": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetOneDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "getPage": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetPageDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "deleteById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "delete": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteManyDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "editById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "edit": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditManyDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseSaveDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseSaveManyDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "updateById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "update": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateDomainCrudKafkaListener<D, DTO, C, R, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateManyDomainCrudKafkaListener<D, DTO, C, R, S>"
-            },
-            "characteristic": {
-                "deleteByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.DeleteByIdOrKeyCharacteristicKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.DeleteManyCharacteristicKafkaListener<DTO, C, S>",
-                "editByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.EditByIdOrKeyCharacteristicKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.EditManyCharacteristicKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveCharacteristicKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveManyCharacteristicKafkaListener<DTO, C, S>",
-                "updateByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.UpdateByIdOrKeyCharacteristicKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveManyCharacteristicKafkaListener<DTO, C, S>"
-            },
-            "relatedParty": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.DeleteByIdOrRelatedIdRelatedPartyKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.DeleteManyRelatedPartyKafkaListener<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.EditByIdOrRelatedIdRelatedPartyKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.EditManyRelatedPartyKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.SaveRelatedPartyKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.SaveManyRelatedPartyKafkaListener<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.UpdateByIdOrRelatedIdRelatedPartyKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.UpdateManyRelatedPartyKafkaListener<DTO, C, S>"
-            },
-            "relatedDomain": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.DeleteByIdOrRelatedIdRelatedDomainKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.DeleteManyRelatedDomainKafkaListener<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.EditByIdOrRelatedIdRelatedDomainKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.EditManyRelatedDomainKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.SaveRelatedDomainKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.SaveManyRelatedDomainKafkaListener<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.UpdateByIdOrRelatedIdRelatedDomainKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.UpdateManyRelatedDomainKafkaListener<DTO, C, S>"
-            },
-            "relatedProcess": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.DeleteByIdOrRelatedIdRelatedProcessKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.DeleteManyRelatedProcessKafkaListener<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.EditByIdOrRelatedIdRelatedProcessKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.EditManyRelatedProcessKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.SaveRelatedProcessKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.SaveManyRelatedProcessKafkaListener<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.UpdateByIdOrRelatedIdRelatedProcessKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.UpdateManyRelatedProcessKafkaListener<DTO, C, S>"
-            },
-            "relatedIntegration": {
-                "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.DeleteByIdOrRelatedIdRelatedIntegrationKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.DeleteManyRelatedIntegrationKafkaListener<DTO, C, S>",
-                "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.EditByIdOrRelatedIdRelatedIntegrationKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.EditManyRelatedIntegrationKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.SaveRelatedIntegrationKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.SaveManyRelatedIntegrationKafkaListener<DTO, C, S>",
-                "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.UpdateByIdOrRelatedIdRelatedIntegrationKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.UpdateManyRelatedIntegrationKafkaListener<DTO, C, S>"
-            },
-            "contactMedium": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.DeleteByIdOrNameContactMediumKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.DeleteManyContactMediumKafkaListener<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.EditByIdOrNameContactMediumKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.EditManyContactMediumKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.SaveContactMediumKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.SaveManyContactMediumKafkaListener<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.UpdateByIdOrNameContactMediumKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.UpdateManyContactMediumKafkaListener<DTO, C, S>"
-            },
-            "objectValidation": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.DeleteByIdOrNameObjectValidationKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.DeleteManyObjectValidationKafkaListener<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.EditByIdOrNameObjectValidationKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.EditManyObjectValidationKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.SaveObjectValidationKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.SaveManyObjectValidationKafkaListener<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.UpdateByIdOrNameObjectValidationKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.UpdateManyObjectValidationKafkaListener<DTO, C, S>"
-            },
-            "relatedAction": {
-                "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.DeleteByIdOrNameRelatedActionKafkaListener<DTO, C, S>",
-                "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.DeleteManyRelatedActionKafkaListener<DTO, C, S>",
-                "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.EditByIdOrNameRelatedActionKafkaListener<D, DTO, C, R, S>",
-                "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.EditManyRelatedActionKafkaListener<DTO, C, S>",
-                "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.SaveRelatedActionKafkaListener<DTO, C, S>",
-                "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.SaveManyRelatedActionKafkaListener<DTO, C, S>",
-                "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.UpdateByIdOrNameRelatedActionKafkaListener<DTO, C, S>",
-                "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.UpdateManyRelatedActionKafkaListener<DTO, C, S>"
-            }
-        }
+  "projectName": "Manak",
+  "packagePath": "ir.msob",
+  "projectVersion": "0.1.0",
+  "databaseType": "Mongo",
+  "idClassPath": "java.lang.String",
+  "security": "Keycloak",
+  "features": "restful,kafka",
+  "jimaVersion": "1.3.1",
+  "resources": {
+    "restful": {
+      "domain": {
+        "countAll": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseCountAllDomainCrudRestResource<D, DTO, C, R, S>",
+        "count": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseCountDomainCrudRestResource<D, DTO, C, R, S>",
+        "getById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetByIdDomainCrudRestResource<D, DTO, C, R, S>",
+        "getMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetManyDomainCrudRestResource<D, DTO, C, R, S>",
+        "getOne": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetOneDomainCrudRestResource<D, DTO, C, R, S>",
+        "getPage": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetPageDomainCrudRestResource<D, DTO, C, R, S>",
+        "getStream": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.read.BaseGetStreamDomainCrudRestResource<D, DTO, C, R, S>",
+        "deleteById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteByIdDomainCrudRestResource<D, DTO, C, R, S>",
+        "delete": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteDomainCrudRestResource<D, DTO, C, R, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseDeleteManyDomainCrudRestResource<D, DTO, C, R, S>",
+        "editById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditByIdDomainCrudRestResource<D, DTO, C, R, S>",
+        "edit": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditDomainCrudRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseEditManyDomainCrudRestResource<D, DTO, C, R, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseSaveDomainCrudRestResource<D, DTO, C, R, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseSaveManyDomainCrudRestResource<D, DTO, C, R, S>",
+        "updateById": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateByIdDomainCrudRestResource<D, DTO, C, R, S>",
+        "update": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateDomainCrudRestResource<D, DTO, C, R, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.domain.service.write.BaseUpdateManyDomainCrudRestResource<D, DTO, C, R, S>"
+      },
+      "characteristic": {
+        "deleteByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.DeleteByIdOrKeyCharacteristicRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.DeleteManyCharacteristicRestResource<DTO, C, S>",
+        "editByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.EditByIdOrKeyCharacteristicRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.EditManyCharacteristicRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveCharacteristicRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveManyCharacteristicRestResource<DTO, C, S>",
+        "updateByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.UpdateByIdOrKeyCharacteristicRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.characteristic.service.SaveManyCharacteristicRestResource<DTO, C, S>"
+      },
+      "relatedParty": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.DeleteByIdOrRelatedIdRelatedPartyRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.DeleteManyRelatedPartyRestResource<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.EditByIdOrRelatedIdRelatedPartyRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.EditManyRelatedPartyRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.SaveRelatedPartyRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.SaveManyRelatedPartyRestResource<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.UpdateByIdOrRelatedIdRelatedPartyRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedparty.service.UpdateManyRelatedPartyRestResource<DTO, C, S>"
+      },
+      "relatedDomain": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.DeleteByIdOrRelatedIdRelatedDomainRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.DeleteManyRelatedDomainRestResource<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.EditByIdOrRelatedIdRelatedDomainRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.EditManyRelatedDomainRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.SaveRelatedDomainRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.SaveManyRelatedDomainRestResource<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.UpdateByIdOrRelatedIdRelatedDomainRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relateddomain.service.UpdateManyRelatedDomainRestResource<DTO, C, S>"
+      },
+      "relatedProcess": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.DeleteByIdOrRelatedIdRelatedProcessRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.DeleteManyRelatedProcessRestResource<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.EditByIdOrRelatedIdRelatedProcessRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.EditManyRelatedProcessRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.SaveRelatedProcessRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.SaveManyRelatedProcessRestResource<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.UpdateByIdOrRelatedIdRelatedProcessRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedprocess.service.UpdateManyRelatedProcessRestResource<DTO, C, S>"
+      },
+      "relatedIntegration": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.DeleteByIdOrRelatedIdRelatedIntegrationRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.DeleteManyRelatedIntegrationRestResource<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.EditByIdOrRelatedIdRelatedIntegrationRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.EditManyRelatedIntegrationRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.SaveRelatedIntegrationRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.SaveManyRelatedIntegrationRestResource<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.UpdateByIdOrRelatedIdRelatedIntegrationRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedintegration.service.UpdateManyRelatedIntegrationRestResource<DTO, C, S>"
+      },
+      "contactMedium": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.DeleteByIdOrNameContactMediumRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.DeleteManyContactMediumRestResource<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.EditByIdOrNameContactMediumRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.EditManyContactMediumRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.SaveContactMediumRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.SaveManyContactMediumRestResource<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.UpdateByIdOrNameContactMediumRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.contactmedium.service.UpdateManyContactMediumRestResource<DTO, C, S>"
+      },
+      "objectValidation": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.DeleteByIdOrNameObjectValidationRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.DeleteManyObjectValidationRestResource<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.EditByIdOrNameObjectValidationRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.EditManyObjectValidationRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.SaveObjectValidationRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.SaveManyObjectValidationRestResource<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.UpdateByIdOrNameObjectValidationRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.objectvalidation.service.UpdateManyObjectValidationRestResource<DTO, C, S>"
+      },
+      "relatedAction": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.DeleteByIdOrNameRelatedActionRestResource<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.DeleteManyRelatedActionRestResource<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.EditByIdOrNameRelatedActionRestResource<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.EditManyRelatedActionRestResource<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.SaveRelatedActionRestResource<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.SaveManyRelatedActionRestResource<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.UpdateByIdOrNameRelatedActionRestResource<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.restful.relatedaction.service.UpdateManyRelatedActionRestResource<DTO, C, S>"
+      }
+    },
+    "kafka": {
+      "domain": {
+        "countAll": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseCountAllDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "count": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseCountDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "getById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "getMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetManyDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "getOne": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetOneDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "getPage": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.read.BaseGetPageDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "deleteById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "delete": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseDeleteManyDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "editById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "edit": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseEditManyDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseSaveDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseSaveManyDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "updateById": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateByIdDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "update": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateDomainCrudKafkaListener<D, DTO, C, R, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.domain.service.write.BaseUpdateManyDomainCrudKafkaListener<D, DTO, C, R, S>"
+      },
+      "characteristic": {
+        "deleteByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.DeleteByIdOrKeyCharacteristicKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.DeleteManyCharacteristicKafkaListener<DTO, C, S>",
+        "editByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.EditByIdOrKeyCharacteristicKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.EditManyCharacteristicKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveCharacteristicKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveManyCharacteristicKafkaListener<DTO, C, S>",
+        "updateByIdOrKey": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.UpdateByIdOrKeyCharacteristicKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.characteristic.service.SaveManyCharacteristicKafkaListener<DTO, C, S>"
+      },
+      "relatedParty": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.DeleteByIdOrRelatedIdRelatedPartyKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.DeleteManyRelatedPartyKafkaListener<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.EditByIdOrRelatedIdRelatedPartyKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.EditManyRelatedPartyKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.SaveRelatedPartyKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.SaveManyRelatedPartyKafkaListener<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.UpdateByIdOrRelatedIdRelatedPartyKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedparty.service.UpdateManyRelatedPartyKafkaListener<DTO, C, S>"
+      },
+      "relatedDomain": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.DeleteByIdOrRelatedIdRelatedDomainKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.DeleteManyRelatedDomainKafkaListener<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.EditByIdOrRelatedIdRelatedDomainKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.EditManyRelatedDomainKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.SaveRelatedDomainKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.SaveManyRelatedDomainKafkaListener<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.UpdateByIdOrRelatedIdRelatedDomainKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relateddomain.service.UpdateManyRelatedDomainKafkaListener<DTO, C, S>"
+      },
+      "relatedProcess": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.DeleteByIdOrRelatedIdRelatedProcessKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.DeleteManyRelatedProcessKafkaListener<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.EditByIdOrRelatedIdRelatedProcessKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.EditManyRelatedProcessKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.SaveRelatedProcessKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.SaveManyRelatedProcessKafkaListener<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.UpdateByIdOrRelatedIdRelatedProcessKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedprocess.service.UpdateManyRelatedProcessKafkaListener<DTO, C, S>"
+      },
+      "relatedIntegration": {
+        "deleteByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.DeleteByIdOrRelatedIdRelatedIntegrationKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.DeleteManyRelatedIntegrationKafkaListener<DTO, C, S>",
+        "editByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.EditByIdOrRelatedIdRelatedIntegrationKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.EditManyRelatedIntegrationKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.SaveRelatedIntegrationKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.SaveManyRelatedIntegrationKafkaListener<DTO, C, S>",
+        "updateByIdOrRelatedId": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.UpdateByIdOrRelatedIdRelatedIntegrationKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedintegration.service.UpdateManyRelatedIntegrationKafkaListener<DTO, C, S>"
+      },
+      "contactMedium": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.DeleteByIdOrNameContactMediumKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.DeleteManyContactMediumKafkaListener<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.EditByIdOrNameContactMediumKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.EditManyContactMediumKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.SaveContactMediumKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.SaveManyContactMediumKafkaListener<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.UpdateByIdOrNameContactMediumKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.contactmedium.service.UpdateManyContactMediumKafkaListener<DTO, C, S>"
+      },
+      "objectValidation": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.DeleteByIdOrNameObjectValidationKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.DeleteManyObjectValidationKafkaListener<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.EditByIdOrNameObjectValidationKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.EditManyObjectValidationKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.SaveObjectValidationKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.SaveManyObjectValidationKafkaListener<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.UpdateByIdOrNameObjectValidationKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.objectvalidation.service.UpdateManyObjectValidationKafkaListener<DTO, C, S>"
+      },
+      "relatedAction": {
+        "deleteByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.DeleteByIdOrNameRelatedActionKafkaListener<DTO, C, S>",
+        "deleteMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.DeleteManyRelatedActionKafkaListener<DTO, C, S>",
+        "editByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.EditByIdOrNameRelatedActionKafkaListener<D, DTO, C, R, S>",
+        "editMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.EditManyRelatedActionKafkaListener<DTO, C, S>",
+        "save": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.SaveRelatedActionKafkaListener<DTO, C, S>",
+        "saveMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.SaveManyRelatedActionKafkaListener<DTO, C, S>",
+        "updateByIdOrName": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.UpdateByIdOrNameRelatedActionKafkaListener<DTO, C, S>",
+        "updateMany": "ir.msob.manak.domain.commons.jima.crud.kafka.relatedaction.service.UpdateManyRelatedActionKafkaListener<DTO, C, S>"
+      }
     }
+  }
 }

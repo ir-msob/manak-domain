@@ -60,22 +60,22 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
-  </dependencyManagement>
-<build>
-<plugins>
-    <!-- Resolve Parent Version Plugin -->
-    <plugin>
-        <groupId>com.hbakkum.maven.plugins</groupId>
-        <artifactId>resolve-parent-version-maven-plugin</artifactId>
-        <version>${resolve-parent-version-maven-plugin.version}</version>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>resolve-parent-version</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
-</plugins>
-</build>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <!-- Resolve Parent Version Plugin -->
+            <plugin>
+                <groupId>com.hbakkum.maven.plugins</groupId>
+                <artifactId>resolve-parent-version-maven-plugin</artifactId>
+                <version>${resolve-parent-version-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>resolve-parent-version</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
