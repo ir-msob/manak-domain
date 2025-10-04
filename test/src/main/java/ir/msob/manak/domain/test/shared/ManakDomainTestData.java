@@ -76,6 +76,7 @@ public class ManakDomainTestData {
      */
     public static Attachment initUpdatedAttachment() {
         return Attachment.builder()
+                .status(Attachment.Status.ACTIVE)
                 .filePath(UPDATED_PATH)
                 .fileName(UPDATED_FILE_NAME)
                 .fileSize(UPDATED_FILE_SIZE)
