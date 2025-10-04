@@ -18,6 +18,11 @@
             <artifactId>core-test</artifactId>
             <version>${manak-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ir.msob.manak.domain</groupId>
+            <artifactId>domain-model</artifactId>
+            <version>${manak-domain.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

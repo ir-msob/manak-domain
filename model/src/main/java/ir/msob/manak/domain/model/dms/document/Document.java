@@ -1,17 +1,15 @@
 package ir.msob.manak.domain.model.dms.document;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.childdomain.ChildDomain;
+import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMedium;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMediumCriteria;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidation;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidationCriteria;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import ir.msob.jima.core.commons.childdomain.ChildDomain;
-import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.domain.model.dms.document.attachment.Attachment;
 import ir.msob.manak.domain.model.dms.document.attachment.AttachmentCriteria;
 import ir.msob.manak.domain.model.dms.documentspecification.DocumentSpecification;
@@ -32,13 +30,14 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @org.springframework.data.mongodb.core.mapping.Document(collection = Document.DOMAIN_NAME)
 @DomainInfo(serviceName = Document.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Document.DOMAIN_NAME_WITH_HYPHEN)
 public class Document extends DomainAbstract {
     @Serial
     private static final long serialVersionUID = -8938843863555452004L;
-    
+
     @Transient
     public static final String DOMAIN_NAME = "Document";
     @Transient
@@ -84,13 +83,6 @@ public class Document extends DomainAbstract {
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
     /**
-     * Contact mediums associated with the document.
-     */
-    @Singular
-    @ChildDomain(cdClass = ContactMedium.class, ccClass = ContactMediumCriteria.class)
-    private SortedSet<ContactMedium> contactMediums = new TreeSet<>();
-
-    /**
      * Object validations for the document.
      */
     @Singular
@@ -104,20 +96,8 @@ public class Document extends DomainAbstract {
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
-    @Builder
-    public Document(String id, String name, String description, SortedSet<String> tags, SortedSet<Attachment> attachments, SortedSet<Characteristic> characteristics, SortedSet<ContactMedium> contactMediums, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
-        super(id);
-        this.name = name;
-        this.description = description;
-        this.tags = tags;
-        this.attachments = attachments;
-        this.characteristics = characteristics;
-        this.contactMediums = contactMediums;
-        this.objectValidations = objectValidations;
-        this.relatedActions = relatedActions;
-    }
 
     public enum FN {
-        name, description
+        name, description, tags, attachments, characteristics, objectValidations, relatedActions,
     }
 }

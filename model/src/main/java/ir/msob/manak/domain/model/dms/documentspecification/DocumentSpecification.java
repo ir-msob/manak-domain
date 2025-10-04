@@ -1,14 +1,14 @@
 package ir.msob.manak.domain.model.dms.documentspecification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import ir.msob.jima.core.commons.childdomain.ChildDomain;
-import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.childdomain.ChildDomain;
+import ir.msob.jima.core.commons.domain.DomainInfo;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -23,16 +23,19 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = DocumentSpecification.DOMAIN_NAME)
 @DomainInfo(serviceName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class DocumentSpecification extends DomainAbstract {
+    @Serial
+    private static final long serialVersionUID = -8938843863555452005L;
+    
     @Transient
     public static final String DOMAIN_NAME = "DocumentSpecification";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "document-specification";
-    @Serial
-    private static final long serialVersionUID = -8938843863555452005L;
+
     @NotBlank
     private String name;
     private String description;
@@ -80,70 +83,21 @@ public class DocumentSpecification extends DomainAbstract {
     @Singular
     private java.util.Map<String, String> customProperties;
 
-    @Builder
-    public DocumentSpecification(String id, String name, String description, SortedSet<Characteristic> characteristics, SortedSet<RelatedAction> relatedActions, StorageType storageType, String endpoint, String bucketOrContainer, String accessKey, String secretKey, String region, String basePath, Map<String, String> customProperties) {
-        super(id);
-        this.name = name;
-        this.description = description;
-        this.characteristics = characteristics;
-        this.relatedActions = relatedActions;
-        this.storageType = storageType;
-        this.endpoint = endpoint;
-        this.bucketOrContainer = bucketOrContainer;
-        this.accessKey = accessKey;
-        this.secretKey = secretKey;
-        this.region = region;
-        this.basePath = basePath;
-        this.customProperties = customProperties;
-    }
-
-    /**
-     * The access key or username for connecting to the storage service
-     *
-     * @return accessKey (not serialized in JSON for security)
-     */
-    @JsonIgnore
-    public String getAccessKey() {
-        return accessKey;
-    }
-
-    /**
-     * The secret key or password for connecting to the storage service
-     *
-     * @return secretKey (not serialized in JSON for security)
-     */
-    @JsonIgnore
-    public String getSecretKey() {
-        return secretKey;
-    }
-
     /**
      * Enum for supported document storage providers.
      */
     public enum StorageType {
-        /**
-         * MinIO object storage
-         */
+        /** MinIO object storage */
         MINIO,
-        /**
-         * Amazon S3 or compatible object storage
-         */
+        /** Amazon S3 or compatible object storage */
         S3,
-        /**
-         * Google Drive cloud storage
-         */
+        /** Google Drive cloud storage */
         GOOGLE_DRIVE,
-        /**
-         * Atlassian Confluence attachment storage
-         */
+        /** Atlassian Confluence attachment storage */
         CONFLUENCE,
-        /**
-         * Other/Custom storage provider
-         */
+        /** Other/Custom storage provider */
         OTHER,
-        /**
-         * FTP server
-         */
+        /** FTP server */
         FTP
     }
 
@@ -161,5 +115,23 @@ public class DocumentSpecification extends DomainAbstract {
         region,
         basePath,
         customProperties
+    }
+
+    /**
+     * The access key or username for connecting to the storage service
+     * @return accessKey (not serialized in JSON for security)
+     */
+    @JsonIgnore
+    public String getAccessKey() {
+        return accessKey;
+    }
+
+    /**
+     * The secret key or password for connecting to the storage service
+     * @return secretKey (not serialized in JSON for security)
+     */
+    @JsonIgnore
+    public String getSecretKey() {
+        return secretKey;
     }
 }
