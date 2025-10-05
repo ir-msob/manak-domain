@@ -20,7 +20,7 @@ public class DocumentSpecificationDto extends DocumentSpecification implements D
     private static final long serialVersionUID = -8938843863555451005L;
 
     @Builder
-    public DocumentSpecificationDto(String name, String description, String key, SortedSet<Characteristic> characteristics, SortedSet<RelatedAction> relatedActions, StorageType storageType, String endpoint, String bucketOrContainer, String accessKey, String secretKey, String region, String basePath, Map<String, String> customProperties) {
-        super(name, description, key, characteristics, relatedActions, storageType, endpoint, bucketOrContainer, accessKey, secretKey, region, basePath, customProperties);
+    public DocumentSpecificationDto(String name, String description, String key, String storageType, SortedSet<Characteristic> characteristics, SortedSet<RelatedAction> relatedActions) {
+        super(name, description, key, storageType, characteristics, relatedActions);
     }
 }
