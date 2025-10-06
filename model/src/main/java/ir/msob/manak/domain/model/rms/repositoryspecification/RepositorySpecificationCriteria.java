@@ -1,8 +1,8 @@
-package ir.msob.manak.domain.model.rmp.repositoryspecification;
+package ir.msob.manak.domain.model.rms.repositoryspecification;
 
+import ir.msob.manak.core.model.jima.domain.CriteriaAbstract;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.filter.Filter;
-import ir.msob.manak.core.model.jima.domain.CriteriaAbstract;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +17,8 @@ import java.io.Serial;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RepositorySpecificationCriteria extends CriteriaAbstract {
     @Serial
-    private static final long serialVersionUID = -8938843863555450004L;
+    private static final long serialVersionUID = -8938843865607837000L;
+
     private Filter<String> name;
     private Filter<String> description;
 }

@@ -1,7 +1,7 @@
-package ir.msob.manak.domain.model.rmp.repository;
+package ir.msob.manak.domain.model.rms.repository;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.manak.core.model.jima.domain.Dto;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.io.Serial;
@@ -13,7 +13,7 @@ import java.io.Serial;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RepositoryDto extends Repository implements Dto {
     @Serial
-    private static final long serialVersionUID = -8938843863555451007L;
+    private static final long serialVersionUID = -8938843865456070000L;
 
     @Builder
     public RepositoryDto(String id, String name, String description) {
