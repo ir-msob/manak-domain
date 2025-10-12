@@ -22,6 +22,10 @@
             <artifactId>core-service</artifactId>
             <version>${manak-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ir.msob.jima.process</groupId>
+            <artifactId>process-starter-activiti</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

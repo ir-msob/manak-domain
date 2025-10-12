@@ -17,6 +17,11 @@
             <artifactId>core-model</artifactId>
             <version>${manak-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ir.msob.jima.process</groupId>
+            <artifactId>process-starter-restful-server</artifactId>
+            <version>${jima.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
