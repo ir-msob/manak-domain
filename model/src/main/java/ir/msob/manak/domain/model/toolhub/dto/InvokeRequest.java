@@ -1,18 +1,20 @@
 package ir.msob.manak.domain.model.toolhub.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import ir.msob.jima.core.commons.shared.ModelType;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class InvokeRequest {
+public class InvokeRequest extends ModelType {
     private String toolId;
-    private Map<String, Object> params = new HashMap<>();
+
+    @Builder.Default
+    private Map<String, Serializable> params = new HashMap<>();
 }

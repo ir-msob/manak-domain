@@ -1,6 +1,7 @@
 package ir.msob.manak.domain.model.toolhub.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.shared.ModelType;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolSchema;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ToolDto {
+public class ToolDto extends ModelType {
     private String name;
     private String description;
     private ToolSchema inputSchema;
