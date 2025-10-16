@@ -8,19 +8,22 @@
         <version>${manak-domain.version}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>domain-service</artifactId>
-    <name>domain</name>
-    <description>domain</description>
+    <artifactId>domain-process</artifactId>
+    <name>process</name>
+    <description>process</description>
     <dependencies>
         <dependency>
             <groupId>ir.msob.manak.domain</groupId>
-            <artifactId>domain-model</artifactId>
+            <artifactId>domain-service</artifactId>
             <version>${manak-domain.version}</version>
         </dependency>
         <dependency>
-            <groupId>ir.msob.manak.core</groupId>
-            <artifactId>core-service</artifactId>
-            <version>${manak-core.version}</version>
+            <groupId>ir.msob.jima.process</groupId>
+            <artifactId>process-starter-activiti</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ir.msob.jima.process</groupId>
+            <artifactId>process-starter-restful-server</artifactId>
         </dependency>
     </dependencies>
 

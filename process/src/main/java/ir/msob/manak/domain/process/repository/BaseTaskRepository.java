@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.service.process.repository;
+package ir.msob.manak.domain.process.repository;
 
 import ir.msob.jima.process.ral.activiti.beans.query.TaskQueryBuilder;
 import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiTaskRepository;

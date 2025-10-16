@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.service.process.service;
+package ir.msob.manak.domain.process.service;
 
 import ir.msob.jima.core.commons.file.BaseFileClient;
 import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiDeploymentRepository;

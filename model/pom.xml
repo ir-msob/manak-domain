@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>ir.msob.jima.process</groupId>
-            <artifactId>process-starter-restful-server</artifactId>
+            <artifactId>process-starter-commons</artifactId>
             <version>${jima.version}</version>
         </dependency>
     </dependencies>

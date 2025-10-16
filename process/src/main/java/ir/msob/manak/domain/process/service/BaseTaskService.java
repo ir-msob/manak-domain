@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.service.process.service;
+package ir.msob.manak.domain.process.service;
 
 import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiTaskRepository;
 import ir.msob.manak.core.model.jima.security.User;

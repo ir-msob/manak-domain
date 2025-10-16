@@ -1,12 +1,12 @@
-package ir.msob.manak.domain.service.process.restful.service;
+package ir.msob.manak.domain.process.restful.service;
 
 import ir.msob.jima.core.commons.security.BaseUserService;
 import ir.msob.manak.core.model.jima.security.User;
 import ir.msob.manak.domain.model.process.deployment.Deployment;
 import ir.msob.manak.domain.model.process.deployment.DeploymentCriteria;
 import ir.msob.manak.domain.model.process.deployment.DeploymentDto;
-import ir.msob.manak.domain.service.process.repository.BaseDeploymentRepository;
-import ir.msob.manak.domain.service.process.service.BaseDeploymentService;
+import ir.msob.manak.domain.process.repository.BaseDeploymentRepository;
+import ir.msob.manak.domain.process.service.BaseDeploymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseDeploymentRestResource<
