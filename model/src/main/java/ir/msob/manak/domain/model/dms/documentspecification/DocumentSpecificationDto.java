@@ -7,7 +7,6 @@ import ir.msob.manak.core.model.jima.domain.Dto;
 import lombok.*;
 
 import java.io.Serial;
-import java.util.Map;
 import java.util.SortedSet;
 
 @Setter

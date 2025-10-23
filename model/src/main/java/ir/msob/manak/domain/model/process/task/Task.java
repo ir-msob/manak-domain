@@ -30,15 +30,12 @@ import java.util.TreeSet;
 @Document(collection = Task.DOMAIN_NAME)
 @DomainInfo(serviceName = Task.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Task.DOMAIN_NAME_WITH_HYPHEN)
 public class Task extends BaseTask implements Domain {
-    @Serial
-    private static final long serialVersionUID = 1;
-
     @Transient
     public static final String DOMAIN_NAME = "Task";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "task";
-
-
+    @Serial
+    private static final long serialVersionUID = 1;
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 

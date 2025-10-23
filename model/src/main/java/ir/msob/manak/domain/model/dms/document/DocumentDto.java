@@ -2,7 +2,6 @@ package ir.msob.manak.domain.model.dms.document;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMedium;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidation;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedobject.relateddomain.RelatedDomain;

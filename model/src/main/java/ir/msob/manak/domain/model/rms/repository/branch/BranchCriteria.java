@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.dms.document.attachment;
+package ir.msob.manak.domain.model.rms.repository.branch;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.filter.Filter;
@@ -14,13 +14,8 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AttachmentCriteria extends ChildCriteriaAbstract<Attachment> {
-
-    private Filter<String> filePath;
-    private Filter<Attachment.Status> status;
-    private Filter<String> fileName;
-    private Filter<String> mimeType;
-    private Filter<Long> fileSize;
-    private Filter<String> checksum;
+public class BranchCriteria extends ChildCriteriaAbstract<Branch> {
+    private Filter<String> name;
+    private Filter<Branch.Status> status;
     private AuditInfoFilters auditInfo;
 }

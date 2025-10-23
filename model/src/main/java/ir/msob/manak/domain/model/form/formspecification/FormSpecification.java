@@ -1,5 +1,8 @@
 package ir.msob.manak.domain.model.form.formspecification;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.childdomain.ChildDomain;
+import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
 import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMedium;
@@ -9,11 +12,11 @@ import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidati
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import ir.msob.jima.core.commons.childdomain.ChildDomain;
-import ir.msob.jima.core.commons.domain.DomainInfo;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -29,14 +32,12 @@ import java.util.TreeSet;
 @Document(collection = FormSpecification.DOMAIN_NAME)
 @DomainInfo(serviceName = FormSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = FormSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class FormSpecification extends DomainAbstract {
-    @Serial
-    private static final long serialVersionUID = -8938843865545679000L;
-    
     @Transient
     public static final String DOMAIN_NAME = "FormSpecification";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "form-specification";
-
+    @Serial
+    private static final long serialVersionUID = -8938843865545679000L;
     @NotBlank
     private String name;
     private String description;

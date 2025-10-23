@@ -39,14 +39,12 @@ import java.util.TreeSet;
 @org.springframework.data.mongodb.core.mapping.Document(collection = Document.DOMAIN_NAME)
 @DomainInfo(serviceName = Document.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Document.DOMAIN_NAME_WITH_HYPHEN)
 public class Document extends DomainAbstract {
-    @Serial
-    private static final long serialVersionUID = -8938843863555452004L;
-
     @Transient
     public static final String DOMAIN_NAME = "Document";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "document";
-
+    @Serial
+    private static final long serialVersionUID = -8938843863555452004L;
     /**
      * The unique name of the document.
      */
@@ -104,14 +102,6 @@ public class Document extends DomainAbstract {
     @ChildDomain(cdClass = RelatedDomain.class, ccClass = RelatedDomainCriteria.class)
     private SortedSet<RelatedDomain> relatedDomains = new TreeSet<>();
 
-    public enum FN {
-        name, description, tags, attachments, characteristics, objectValidations, relatedActions, relatedDomains
-    }
-
-    public enum RelatedDomainRole {
-        PRIMARY, SECONDARY
-    }
-
     public Optional<Attachment> getLatestAttachment() {
         if (attachments == null || attachments.isEmpty()) {
             return Optional.empty();
@@ -119,6 +109,14 @@ public class Document extends DomainAbstract {
 
         return attachments.stream()
                 .max(Comparator.comparingInt(Attachment::getVersion));
+    }
+
+    public enum FN {
+        name, description, tags, attachments, characteristics, objectValidations, relatedActions, relatedDomains
+    }
+
+    public enum RelatedDomainRole {
+        PRIMARY, SECONDARY
     }
 
 }

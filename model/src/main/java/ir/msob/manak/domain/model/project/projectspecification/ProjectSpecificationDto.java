@@ -1,7 +1,7 @@
 package ir.msob.manak.domain.model.project.projectspecification;
 
-import ir.msob.manak.core.model.jima.domain.Dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.manak.core.model.jima.domain.Dto;
 import lombok.*;
 
 import java.io.Serial;

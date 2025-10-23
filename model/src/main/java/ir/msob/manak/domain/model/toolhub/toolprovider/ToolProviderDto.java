@@ -1,10 +1,10 @@
 package ir.msob.manak.domain.model.toolhub.toolprovider;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidation;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.domain.Dto;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolDescriptor;
 import lombok.*;
 

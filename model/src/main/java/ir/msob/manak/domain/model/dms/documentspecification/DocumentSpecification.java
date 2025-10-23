@@ -26,14 +26,12 @@ import java.util.TreeSet;
 @Document(collection = DocumentSpecification.DOMAIN_NAME)
 @DomainInfo(serviceName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class DocumentSpecification extends DomainAbstract {
-    @Serial
-    private static final long serialVersionUID = -8938843863555452005L;
-
     @Transient
     public static final String DOMAIN_NAME = "DocumentSpecification";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "document-specification";
-
+    @Serial
+    private static final long serialVersionUID = -8938843863555452005L;
     @NotBlank
     private String name;
     private String description;
