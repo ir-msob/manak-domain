@@ -19,7 +19,6 @@ public class DocumentSpecificationCriteria extends CriteriaAbstract {
     @Serial
     private static final long serialVersionUID = -8938843863555450003L;
     private Filter<String> name;
-    private Filter<String> description;
     private Filter<String> key;
     private Filter<String> storageType;
 }

@@ -20,5 +20,6 @@ public class RepositorySpecificationCriteria extends CriteriaAbstract {
     private static final long serialVersionUID = -8938843865607837000L;
 
     private Filter<String> name;
-    private Filter<String> description;
+    private Filter<String> key;
+    private Filter<String> baseUrl;
 }

@@ -41,6 +41,8 @@ public class Branch extends ChildDomainAbstract implements Comparable<Branch> {
     @Builder.Default
     private Status status = Status.ACTIVE;
 
+    private boolean defaultBranch;
+
     /**
      * Audit information for the branch (created/updated info).
      */

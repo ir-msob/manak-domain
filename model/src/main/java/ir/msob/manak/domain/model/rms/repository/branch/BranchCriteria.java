@@ -17,5 +17,6 @@ import lombok.ToString;
 public class BranchCriteria extends ChildCriteriaAbstract<Branch> {
     private Filter<String> name;
     private Filter<Branch.Status> status;
+    private Filter<Boolean> defaultBranch;
     private AuditInfoFilters auditInfo;
 }

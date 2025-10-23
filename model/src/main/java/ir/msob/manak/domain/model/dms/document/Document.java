@@ -16,6 +16,7 @@ import ir.msob.manak.domain.model.dms.document.attachment.Attachment;
 import ir.msob.manak.domain.model.dms.document.attachment.AttachmentCriteria;
 import ir.msob.manak.domain.model.dms.documentspecification.DocumentSpecification;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -53,6 +54,7 @@ public class Document extends DomainAbstract {
     /**
      * The key of the document.
      */
+    @NotBlank
     private String key;
     /**
      * The description of the document.
@@ -68,6 +70,7 @@ public class Document extends DomainAbstract {
      * The specification describing the storage and connection details for this document.
      */
     @DBRef(lazy = true)
+    @NotNull
     private DocumentSpecification specification;
 
     /**

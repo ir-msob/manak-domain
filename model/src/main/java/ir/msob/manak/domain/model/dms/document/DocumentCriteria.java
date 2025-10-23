@@ -26,7 +26,7 @@ public class DocumentCriteria extends CriteriaAbstract {
     private static final long serialVersionUID = -8938843863555450006L;
 
     private Filter<String> name;
-    private Filter<String> description;
+    private Filter<String> key;
     private Filter<String> tags;
     private AttachmentCriteria attachments;
     private CharacteristicCriteria characteristics;
