@@ -12,6 +12,8 @@ import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidati
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
+import ir.msob.manak.domain.model.rms.repository.branch.Branch;
+import ir.msob.manak.domain.model.rms.repository.branch.BranchCriteria;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +43,9 @@ public class Repository extends DomainAbstract {
     @NotBlank
     private String name;
     private String description;
+
+    @ChildDomain(cdClass = Branch.class, ccClass = BranchCriteria.class)
+    private SortedSet<Branch> branches = new TreeSet<>();
 
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
