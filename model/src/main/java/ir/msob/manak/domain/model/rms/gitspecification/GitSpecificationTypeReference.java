@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.git.gitspecification;
+package ir.msob.manak.domain.model.rms.gitspecification;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import ir.msob.jima.core.commons.channel.ChannelMessage;

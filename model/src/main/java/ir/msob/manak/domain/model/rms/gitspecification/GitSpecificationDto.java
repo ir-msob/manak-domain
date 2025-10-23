@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.git.gitspecification;
+package ir.msob.manak.domain.model.rms.gitspecification;
 
 import ir.msob.manak.core.model.jima.domain.Dto;
 import com.fasterxml.jackson.annotation.JsonInclude;

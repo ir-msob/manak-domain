@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.git.dto;
+package ir.msob.manak.domain.model.rms.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

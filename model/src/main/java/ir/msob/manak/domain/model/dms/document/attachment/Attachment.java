@@ -6,8 +6,6 @@ import ir.msob.jima.core.commons.shared.auditinfo.AuditInfo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.PersistenceCreator;
 
 import java.util.Objects;
 
@@ -62,7 +60,7 @@ public class Attachment extends BaseChildDomainAbstract<String> implements Compa
      * The order of the attachment among other attachments. Default is 0.
      */
     @Builder.Default
-    private Integer order = 0;
+    private Integer version = 0;
 
     /**
      * Enum representing the status of the attachment.
@@ -112,6 +110,6 @@ public class Attachment extends BaseChildDomainAbstract<String> implements Compa
             return 0;
         }
 
-        return Objects.compare(this.getOrder(), o.getOrder(), Integer::compareTo);
+        return Objects.compare(this.getVersion(), o.getVersion(), Integer::compareTo);
     }
 }

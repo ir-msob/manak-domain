@@ -93,6 +93,6 @@ public class ManakDomainTestData {
         Assertions.assertThat(after.getFileSize()).isEqualTo(before.getFileSize());
         Assertions.assertThat(after.getChecksum()).isEqualTo(before.getChecksum());
         Assertions.assertThat(after.getStatus()).isEqualTo(before.getStatus());
-        Assertions.assertThat(after.getOrder()).isEqualTo(before.getOrder());
+        Assertions.assertThat(after.getVersion()).isEqualTo(before.getVersion());
     }
 }

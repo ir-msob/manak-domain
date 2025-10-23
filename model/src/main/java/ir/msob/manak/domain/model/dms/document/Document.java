@@ -9,6 +9,8 @@ import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidati
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidationCriteria;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
+import ir.msob.manak.core.model.jima.childdomain.relatedobject.relateddomain.RelatedDomain;
+import ir.msob.manak.core.model.jima.childdomain.relatedobject.relateddomain.RelatedDomainCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import ir.msob.manak.domain.model.dms.document.attachment.Attachment;
 import ir.msob.manak.domain.model.dms.document.attachment.AttachmentCriteria;
@@ -19,6 +21,8 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.io.Serial;
+import java.util.Comparator;
+import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -96,8 +100,25 @@ public class Document extends DomainAbstract {
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
+    @Singular
+    @ChildDomain(cdClass = RelatedDomain.class, ccClass = RelatedDomainCriteria.class)
+    private SortedSet<RelatedDomain> relatedDomains = new TreeSet<>();
 
     public enum FN {
-        name, description, tags, attachments, characteristics, objectValidations, relatedActions,
+        name, description, tags, attachments, characteristics, objectValidations, relatedActions, relatedDomains
     }
+
+    public enum RelatedDomainRole {
+        PRIMARY, SECONDARY
+    }
+
+    public Optional<Attachment> getLatestAttachment() {
+        if (attachments == null || attachments.isEmpty()) {
+            return Optional.empty();
+        }
+
+        return attachments.stream()
+                .max(Comparator.comparingInt(Attachment::getVersion));
+    }
+
 }

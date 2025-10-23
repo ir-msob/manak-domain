@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.git.gitspecification;
+package ir.msob.manak.domain.model.rms.gitspecification;
 
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
