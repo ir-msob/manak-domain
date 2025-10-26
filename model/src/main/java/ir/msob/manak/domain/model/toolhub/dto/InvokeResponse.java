@@ -12,6 +12,6 @@ import java.io.Serializable;
 @Builder
 public class InvokeResponse extends ModelType {
     private String toolId;
-    private Serializable result;
+    private Serializable res;
     private String error;
 }

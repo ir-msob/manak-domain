@@ -4,9 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Data
@@ -14,9 +12,9 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ToolSchema implements Serializable {
+public class RequestSchema implements Serializable {
     @NotBlank
-    private String type;
-    private Map<String, ToolParameter> properties = new HashMap<>();
-    private List<String> required = new ArrayList<>();
+    private ToolParameter toolId;
+    @Singular
+    private Map<String, ToolParameter> params = new HashMap<>();
 }

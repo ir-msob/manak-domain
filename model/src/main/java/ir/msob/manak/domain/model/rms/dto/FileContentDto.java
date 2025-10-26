@@ -12,8 +12,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class FileContentDto implements Serializable {
-    private String repoUrl;
-    private String branch;
-    private String filePath;
+    private String name;
+    private String path;
+    private String sha;
+    private long size;
+    private String url;
     private String content;
+    private String encoding;
 }

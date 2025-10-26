@@ -44,6 +44,8 @@ public class RepositorySpecification extends DomainAbstract {
     private String name;
     @NotBlank
     private String key;
+    @NotBlank
+    private String type;
     private String description;
     @NotBlank
     private String baseUrl;

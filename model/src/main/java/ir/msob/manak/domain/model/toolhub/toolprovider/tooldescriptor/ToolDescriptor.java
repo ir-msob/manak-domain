@@ -20,11 +20,13 @@ public class ToolDescriptor extends ChildDomainAbstract implements Comparable<To
     @NotBlank
     private String name;
     @NotBlank
+    private String key;
+    @NotBlank
     private String description;
     @NotNull
-    private ToolSchema inputSchema;
+    private RequestSchema inputSchema;
     @NotNull
-    private ToolSchema outputSchema;
+    private ResponseSchema outputSchema;
     @NotNull
     private String version;
     @NotNull
