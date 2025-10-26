@@ -10,21 +10,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ToolRegistry {
 
-    private final List<ToolHandler> handlers;
-    private Map<String, ToolHandler> handlerMap;
+    private final Optional<List<ToolHandler>> handlers;
+    private Map<String, ToolHandler> handlerMap = new HashMap<>();
 
     @PostConstruct
     private void init() {
-        handlerMap = handlers.stream()
-                .collect(Collectors.toMap(o -> o.getToolDescriptor().getKey(), h -> h));
+        handlers.ifPresent(toolHandlers -> handlerMap = toolHandlers
+                .stream()
+                .collect(Collectors.toMap(o -> o.getToolDescriptor().getKey(), h -> h)));
     }
 
     public Mono<InvokeResponse> invoke(InvokeRequest request, User user) {
