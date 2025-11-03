@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -79,6 +80,15 @@ public class ToolParameter implements Serializable {
      */
     @Singular
     private Map<String, ToolParameter> properties;
+
+    private Long minimum;
+    private Long maximum;
+    private Integer minLength;
+    private Integer maxLength;
+    private String pattern;
+    @Singular
+    private List<Serializable> enumValues;
+    private Boolean nullable;
 
     public enum ToolParameterType {
         STRING, NUMBER, BOOLEAN, OBJECT, ARRAY

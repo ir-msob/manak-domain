@@ -58,9 +58,6 @@ public class RepositorySpecification extends DomainAbstract {
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
-    @ChildDomain(cdClass = ContactMedium.class, ccClass = ContactMediumCriteria.class)
-    private SortedSet<ContactMedium> contactMediums = new TreeSet<>();
-
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 

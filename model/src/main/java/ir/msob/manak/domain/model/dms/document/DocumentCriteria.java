@@ -30,7 +30,6 @@ public class DocumentCriteria extends CriteriaAbstract {
     private Filter<String> tags;
     private AttachmentCriteria attachments;
     private CharacteristicCriteria characteristics;
-    private ContactMediumCriteria contactMediums;
     private ObjectValidationCriteria objectValidations;
     private RelatedActionCriteria relatedActions;
     private AuditInfoFilters auditInfo;
