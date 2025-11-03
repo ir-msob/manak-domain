@@ -29,12 +29,11 @@ public class ToolRestResource {
     private final UserService userService;
 
     @PostMapping("invoke")
-    public ResponseEntity<Mono<InvokeResponse>> invoke(@RequestBody InvokeRequest dto, Principal principal) {
+    public Mono<ResponseEntity<InvokeResponse>> invoke(@RequestBody InvokeRequest dto, Principal principal) {
         logger.info("Invoke request received with tool {}", dto.getToolId());
         User user = userService.getUser(principal);
 
-        Mono<InvokeResponse> res = toolRegistry.invoke(dto, user);
-
-        return ResponseEntity.status(OperationsStatus.SAVE).body(res);
+        return toolRegistry.invoke(dto, user)
+                .map(res -> ResponseEntity.status(OperationsStatus.SAVE).body(res));
     }
 }

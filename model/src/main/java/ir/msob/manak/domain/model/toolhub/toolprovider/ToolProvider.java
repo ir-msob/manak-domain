@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = ToolProvider.DOMAIN_NAME)
-@DomainInfo(serviceName = ToolProvider.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = ToolProvider.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(serviceName = "toolhub", version = "v1", domainName = ToolProvider.DOMAIN_NAME_WITH_HYPHEN)
 public class ToolProvider extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "ToolProvider";

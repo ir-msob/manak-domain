@@ -1,6 +1,7 @@
 package ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.io.Serializable;
@@ -29,7 +30,7 @@ public class ToolParameter implements Serializable {
      * - "ARRAY"   → A list of values (defined by "items")
      * - "OBJECT"  → A structured value (defined by "properties")
      */
-    @NotBlank
+    @NotNull
     private ToolParameterType type;
 
     /**

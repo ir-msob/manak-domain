@@ -11,6 +11,8 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ModelSpecificationCriteria extends CriteriaAbstract {
     @Serial
