@@ -5,8 +5,6 @@ import ir.msob.jima.core.commons.childdomain.ChildDomain;
 import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMedium;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMediumCriteria;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidation;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidationCriteria;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;

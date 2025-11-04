@@ -88,8 +88,8 @@ public class ToolParameter implements Serializable {
      * Example:
      * type = "OBJECT"
      * properties = {
-     *   "name": { type = "STRING" },
-     *   "age":  { type = "NUMBER" }
+     * "name": { type = "STRING" },
+     * "age":  { type = "NUMBER" }
      * }
      */
     @Singular

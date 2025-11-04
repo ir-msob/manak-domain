@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.filter.Filter;
 import ir.msob.jima.core.commons.shared.auditinfo.AuditInfoFilters;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.CharacteristicCriteria;
-import ir.msob.manak.core.model.jima.childdomain.contactmedium.ContactMediumCriteria;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidationCriteria;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.CriteriaAbstract;
