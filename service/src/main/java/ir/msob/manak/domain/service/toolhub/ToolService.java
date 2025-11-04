@@ -4,6 +4,7 @@ import ir.msob.jima.core.commons.logger.Logger;
 import ir.msob.jima.core.commons.logger.LoggerFactory;
 import ir.msob.manak.core.model.jima.security.User;
 import ir.msob.manak.domain.model.toolhub.ToolExecutor;
+import ir.msob.manak.domain.service.toolhub.util.ToolExecutorUtil;
 import ir.msob.manak.domain.model.toolhub.dto.InvokeRequest;
 import ir.msob.manak.domain.model.toolhub.dto.InvokeResponse;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class ToolService {
                 .onErrorResume(e -> Mono.just(
                         InvokeResponse.builder()
                                 .toolId(toolId)
-                                .error(ToolExecutorUtl.buildErrorResponse(toolId, e))
+                                .error(ToolExecutorUtil.buildErrorResponse(toolId, e))
                                 .build()
                 ));
     }
