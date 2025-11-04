@@ -43,16 +43,29 @@ public class ToolParameter implements Serializable {
 
     /**
      * The default value to use when the parameter is not provided.
+     * Can be any serializable type depending on {@link #type}.
+     * <p>
+     * Example:
+     * - For a string parameter: "defaultValue" = "N/A"
+     * - For a number parameter: "defaultValue" = 0
      */
     private Serializable defaultValue;
 
     /**
      * An example value illustrating how this parameter might look in real data.
+     * Used for documentation and example payloads.
+     * <p>
+     * Example:
+     * - "example" = "John Doe"
+     * - "example" = [1, 2, 3]
      */
     private Serializable example;
 
     /**
      * Indicates whether this parameter is required in the context where it is used.
+     * <p>
+     * Example:
+     * required = true → must be present in the request or input data.
      */
     private boolean required;
 
@@ -73,24 +86,81 @@ public class ToolParameter implements Serializable {
      * is another ToolParameter defining that field’s structure.
      * <p>
      * Example:
-     * type = "object"
+     * type = "OBJECT"
      * properties = {
-     * "name": { type = "STRING" },
-     * "age": { type = "NUMBER" }
+     *   "name": { type = "STRING" },
+     *   "age":  { type = "NUMBER" }
      * }
      */
     @Singular
     private Map<String, ToolParameter> properties;
 
+    /**
+     * The minimum numeric value allowed for NUMBER type parameters.
+     * <p>
+     * Example:
+     * type = "NUMBER"
+     * minimum = 0 → Only non-negative numbers are valid.
+     */
     private Long minimum;
+
+    /**
+     * The maximum numeric value allowed for NUMBER type parameters.
+     * <p>
+     * Example:
+     * type = "NUMBER"
+     * maximum = 100 → Value must be less than or equal to 100.
+     */
     private Long maximum;
+
+    /**
+     * The minimum length of the value for STRING type parameters.
+     * <p>
+     * Example:
+     * type = "STRING"
+     * minLength = 3 → String must contain at least 3 characters.
+     */
     private Integer minLength;
+
+    /**
+     * The maximum length of the value for STRING type parameters.
+     * <p>
+     * Example:
+     * type = "STRING"
+     * maxLength = 255 → String must contain at most 255 characters.
+     */
     private Integer maxLength;
+
+    /**
+     * A regular expression pattern the STRING value must match.
+     * <p>
+     * Example:
+     * pattern = "^[A-Za-z0-9_-]+$" → Allows only alphanumeric characters, underscores, and hyphens.
+     */
     private String pattern;
+
+    /**
+     * A list of allowed constant values for the parameter.
+     * Similar to an enumeration.
+     * <p>
+     * Example:
+     * enumValues = ["ASC", "DESC"]
+     */
     @Singular
     private List<Serializable> enumValues;
+
+    /**
+     * Indicates whether the parameter value can be null.
+     * <p>
+     * Example:
+     * nullable = true → null values are accepted as valid input.
+     */
     private Boolean nullable;
 
+    /**
+     * Enumeration defining supported parameter types.
+     * Used to represent the structural nature of a parameter.
+     */
     public enum ToolParameterType {
         STRING, NUMBER, BOOLEAN, OBJECT, ARRAY
     }

@@ -5,8 +5,8 @@ import ir.msob.jima.core.commons.logger.Logger;
 import ir.msob.jima.core.commons.logger.LoggerFactory;
 import ir.msob.jima.crud.api.kafka.client.domain.DomainCrudKafkaAsyncClient;
 import ir.msob.manak.core.service.jima.security.UserService;
-import ir.msob.manak.domain.model.toolhub.ToolHandler;
-import ir.msob.manak.domain.model.toolhub.ToolProviderHandler;
+import ir.msob.manak.domain.model.toolhub.ToolExecutor;
+import ir.msob.manak.domain.model.toolhub.ToolProviderDescriptor;
 import ir.msob.manak.domain.model.toolhub.toolprovider.ToolProviderDto;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolDescriptor;
 import jakarta.annotation.PostConstruct;
@@ -22,49 +22,47 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ToolProviderPublisher {
+
     private static final Logger log = LoggerFactory.getLogger(ToolProviderPublisher.class);
 
-    private final Optional<List<ToolHandler>> handlers;
-    private final Optional<ToolProviderHandler> toolProviderHandler;
+    private final Optional<List<ToolExecutor>> toolExecutors;
+    private final Optional<ToolProviderDescriptor> toolProviderDescriptor;
     private final UserService userService;
     private final DomainCrudKafkaAsyncClient kafkaClient;
 
     @PostConstruct
     public void send() {
-        log.info("🚀 ToolProducer started producing ToolProvider message...");
+        int executorCount = toolExecutors.isPresent() ? toolExecutors.map(List::size).orElse(0) : 0;
+        boolean hasExecutors = toolExecutors.isPresent() && !toolExecutors.get().isEmpty();
+        boolean hasDescriptor = toolProviderDescriptor.isPresent();
 
-        if (handlers.isPresent() && toolProviderHandler.isPresent()) {
+        log.info("Initializing ToolProviderPublisher: toolExecutorsPresent={}, toolExecutorsCount={}, toolProviderDescriptorPresent={}",
+                hasExecutors, executorCount, hasDescriptor);
+
+        if (toolExecutors.isPresent() && !toolExecutors.get().isEmpty() && toolProviderDescriptor.isPresent()) {
             try {
-                // -------------------------------
-                // Collect all ToolDescriptors from handlers
-                // -------------------------------
-                SortedSet<ToolDescriptor> tools = handlers.get()
+                // Step 1: Collect all tool descriptors from registered executors
+                SortedSet<ToolDescriptor> tools = toolExecutors.get()
                         .stream()
-                        .map(ToolHandler::getToolDescriptor)
+                        .map(ToolExecutor::getToolDescriptor)
                         .collect(Collectors.toCollection(TreeSet::new));
-                log.info("🛠 Collected {} tool descriptors from handlers.", tools.size());
+                log.info("Collected {} tool descriptors from executors.", tools.size());
 
-                // -------------------------------
-                // Build ToolProvider
-                // -------------------------------
-                ToolProviderDto provider = toolProviderHandler.get().getToolProvider();
+                // Step 2: Build ToolProvider DTO with descriptors
+                ToolProviderDto provider = toolProviderDescriptor.get().getToolProvider();
                 provider.setTools(tools);
-                log.info("📦 ToolProvider '{}' built with {} tools.", provider.getName(), tools.size());
+                log.info("Built ToolProvider '{}' containing {} tools.", provider.getName(), tools.size());
 
-                // -------------------------------
-                // Send to Kafka
-                // -------------------------------
-                kafkaClient.save(
-                        ToolProviderDto.class,
-                        provider,
-                        userService.getSystemUser()
-                );
-                log.info("✅ ToolProvider message successfully sent to Kafka for '{}'.", provider.getName());
+                // Step 3: Publish ToolProvider DTO to Kafka
+                kafkaClient.save(ToolProviderDto.class, provider, userService.getSystemUser());
+                log.info("ToolProvider '{}' successfully published to Kafka.", provider.getName());
 
             } catch (Exception e) {
-                log.error("❌ Failed to produce ToolProvider message", e);
-                throw new CommonRuntimeException("Failed to produce ToolProvider message", e);
+                log.error("Failed to publish ToolProvider message to Kafka.", e);
+                throw new CommonRuntimeException("Error publishing ToolProvider message to Kafka", e);
             }
+        } else {
+            log.info("ToolProviderPublisher skipped: missing ToolExecutors or ToolProviderDescriptor.");
         }
     }
 }

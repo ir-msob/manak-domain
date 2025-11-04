@@ -2,7 +2,6 @@ package ir.msob.manak.domain.service.toolhub;
 
 import ir.msob.jima.core.commons.logger.Logger;
 import ir.msob.jima.core.commons.logger.LoggerFactory;
-import ir.msob.jima.core.commons.operation.OperationsStatus;
 import ir.msob.manak.core.model.jima.security.User;
 import ir.msob.manak.core.service.jima.security.UserService;
 import ir.msob.manak.domain.model.toolhub.dto.InvokeRequest;
@@ -25,15 +24,14 @@ public class ToolRestResource {
     public static final String BASE_URI = "/api/v1/tool";
     private static final Logger logger = LoggerFactory.getLogger(ToolRestResource.class);
 
-    private final ToolRegistry toolRegistry; // ✅ فقط یک dependency
+    private final ToolService service;
     private final UserService userService;
 
     @PostMapping("invoke")
-    public Mono<ResponseEntity<InvokeResponse>> invoke(@RequestBody InvokeRequest dto, Principal principal) {
-        logger.info("Invoke request received with tool {}", dto.getToolId());
+    public ResponseEntity<Mono<InvokeResponse>> invoke(@RequestBody InvokeRequest dto, Principal principal) {
+        logger.info("REST request to invoke tool, ToolId: {}", dto.getToolId());
         User user = userService.getUser(principal);
-
-        return toolRegistry.invoke(dto, user)
-                .map(res -> ResponseEntity.status(OperationsStatus.SAVE).body(res));
+        Mono<InvokeResponse> res = service.invoke(dto, user);
+        return ResponseEntity.ok(res);
     }
 }

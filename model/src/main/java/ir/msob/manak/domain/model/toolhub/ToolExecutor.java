@@ -6,7 +6,7 @@ import ir.msob.manak.domain.model.toolhub.dto.InvokeResponse;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolDescriptor;
 import reactor.core.publisher.Mono;
 
-public interface ToolHandler {
+public interface ToolExecutor {
     ToolDescriptor getToolDescriptor();
 
     Mono<InvokeResponse> execute(InvokeRequest request, User user);
