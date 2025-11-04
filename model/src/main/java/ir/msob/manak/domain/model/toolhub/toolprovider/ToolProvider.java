@@ -39,8 +39,8 @@ public class ToolProvider extends DomainAbstract {
     @NotBlank
     private String name;
     private String description;
-    @NotBlank
-    private String baseUrl;
+    private String serviceName;
+    private String serviceUrl;
     @NotBlank
     private String endpoint;
 
@@ -61,6 +61,6 @@ public class ToolProvider extends DomainAbstract {
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
     public enum FN {
-        name, description, baseUrl
+        name, description, serviceName, serviceUrl, endpoint
     }
 }

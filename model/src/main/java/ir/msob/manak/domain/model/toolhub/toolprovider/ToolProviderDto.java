@@ -21,7 +21,7 @@ public class ToolProviderDto extends ToolProvider implements Dto {
     private static final long serialVersionUID = -8938843863766936000L;
 
     @Builder
-    public ToolProviderDto(String name, String description, String baseUrl, String endpoint, SortedSet<ToolDescriptor> tools, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
-        super(name, description, baseUrl, endpoint, tools, characteristics, objectValidations, relatedActions);
+    public ToolProviderDto(String name, String description, String serviceName, String serviceUrl, String endpoint, SortedSet<ToolDescriptor> tools, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
+        super(name, description, serviceName, serviceUrl, endpoint, tools, characteristics, objectValidations, relatedActions);
     }
 }

@@ -19,5 +19,5 @@ public class ToolProviderCriteria extends CriteriaAbstract {
     private static final long serialVersionUID = -8938843863599063000L;
 
     private Filter<String> name;
-    private Filter<String> description;
+    private Filter<String> serviceName;
 }
