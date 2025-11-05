@@ -3,8 +3,6 @@ package ir.msob.manak.domain.model.toolhub.dto;
 import ir.msob.jima.core.commons.shared.ModelType;
 import lombok.*;
 
-import java.io.Serializable;
-
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -12,6 +10,6 @@ import java.io.Serializable;
 @Builder
 public class InvokeResponse extends ModelType {
     private String toolId;
-    private Serializable res;
+    private Object res;
     private String error;
 }

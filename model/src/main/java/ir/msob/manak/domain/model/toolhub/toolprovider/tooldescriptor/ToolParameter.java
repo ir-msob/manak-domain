@@ -43,13 +43,13 @@ public class ToolParameter implements Serializable {
 
     /**
      * The default value to use when the parameter is not provided.
-     * Can be any serializable type depending on {@link #type}.
+     * Can be any Object type depending on {@link #type}.
      * <p>
      * Example:
      * - For a string parameter: "defaultValue" = "N/A"
      * - For a number parameter: "defaultValue" = 0
      */
-    private Serializable defaultValue;
+    private Object defaultValue;
 
     /**
      * A list of example values that illustrate how this parameter
@@ -68,7 +68,7 @@ public class ToolParameter implements Serializable {
      * </pre>
      */
     @Singular
-    private List<Serializable> examples;
+    private List<Object> examples;
 
     /**
      * Indicates whether this parameter is required in the context where it is used.
@@ -156,7 +156,7 @@ public class ToolParameter implements Serializable {
      * enumValues = ["ASC", "DESC"]
      */
     @Singular
-    private List<Serializable> enumValues;
+    private List<Object> enumValues;
 
     /**
      * Indicates whether the parameter value can be null.
