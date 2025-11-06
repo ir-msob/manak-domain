@@ -52,23 +52,22 @@ public class ToolParameter implements Serializable {
     private Object defaultValue;
 
     /**
-     * A list of example values that illustrate how this parameter
-     * might appear in actual request or response data.
-     * <p>
-     * This field is primarily used for documentation and example payload
-     * generation (e.g., in OpenAPI specifications or tool descriptors).
-     * Each item in the list represents a possible example value for this parameter.
-     * </p>
+     * Represents an example value illustrating how this parameter
+     * might appear in an actual request or response payload.
      *
-     * <p><b>Examples:</b></p>
-     * <pre>
-     * examples = ["John Doe"]
-     * examples = [1, 2, 3]
-     * examples = ["application/json", "text/plain"]
-     * </pre>
+     * <p>This field is mainly used for documentation purposes
+     * (for example, in OpenAPI specifications or tool descriptors)
+     * to demonstrate potential values of the parameter.</p>
+     *
+     * <p><b>Usage Examples:</b></p>
+     * <pre>{@code
+     * example = "John Doe";
+     * example = 42;
+     * example = List.of(1, 2, 3);
+     * example = Map.of("type", "application/json");
+     * }</pre>
      */
-    @Singular
-    private List<Object> examples;
+    private Object example;
 
     /**
      * Indicates whether this parameter is required in the context where it is used.
