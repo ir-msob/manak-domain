@@ -24,7 +24,7 @@ import java.util.TreeSet;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = DocumentSpecification.DOMAIN_NAME)
-@DomainInfo(serviceName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = DocumentSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class DocumentSpecification extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "DocumentSpecification";

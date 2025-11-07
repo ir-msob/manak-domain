@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = GitSpecification.DOMAIN_NAME)
-@DomainInfo(serviceName = GitSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = GitSpecification.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = GitSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class GitSpecification extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "GitSpecification";

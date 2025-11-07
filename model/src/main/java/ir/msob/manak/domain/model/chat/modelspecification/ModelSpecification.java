@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.aiagent.modelspecification;
+package ir.msob.manak.domain.model.chat.modelspecification;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.childdomain.ChildDomain;
@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = ModelSpecification.DOMAIN_NAME)
-@DomainInfo(serviceName = ModelSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = ModelSpecification.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = ModelSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class ModelSpecification extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "ModelSpecification";

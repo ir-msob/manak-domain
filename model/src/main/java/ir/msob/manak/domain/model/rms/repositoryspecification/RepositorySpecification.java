@@ -30,7 +30,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = RepositorySpecification.DOMAIN_NAME)
-@DomainInfo(serviceName = RepositorySpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = RepositorySpecification.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = RepositorySpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class RepositorySpecification extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "RepositorySpecification";

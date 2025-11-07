@@ -1,7 +1,11 @@
 package ir.msob.manak.domain.model.toolhub.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.domain.DomainInfo;
+import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.jima.core.commons.shared.ModelType;
+import ir.msob.manak.domain.model.common.ServiceName;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolParameter;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -17,7 +21,11 @@ import java.util.Map;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ToolDto extends ModelType {
+@DtoInfo(serviceName = ServiceName.TOOL_HUB, version = "v1")
+@DomainInfo(domainName = ToolRegistryDto.DOMAIN_NAME_WITH_HYPHEN)
+public class ToolRegistryDto extends ModelType {
+    @JsonIgnore
+    public static final String DOMAIN_NAME_WITH_HYPHEN = "tool-registry";
     @NotBlank
     private String toolId;
     @NotBlank

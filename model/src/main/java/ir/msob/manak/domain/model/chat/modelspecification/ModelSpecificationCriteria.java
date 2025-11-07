@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.aiagent.modelspecification;
+package ir.msob.manak.domain.model.chat.modelspecification;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.filter.Filter;

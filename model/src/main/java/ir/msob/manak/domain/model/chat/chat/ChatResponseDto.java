@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.aiagent.chat;
+package ir.msob.manak.domain.model.chat.chat;
 
 import ir.msob.jima.core.commons.shared.ModelType;
 import lombok.*;
@@ -12,8 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Builder
-public class ChatRequest extends ModelType {
+public class ChatResponseDto extends ModelType {
     private String modelSpecificationKey;
     private String message;
+    private String response;
     private List<String> tools = new ArrayList<>();
 }

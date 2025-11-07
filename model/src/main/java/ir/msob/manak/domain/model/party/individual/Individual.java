@@ -18,7 +18,7 @@ import java.io.Serial;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Individual.DOMAIN_NAME)
-@DomainInfo(serviceName = Individual.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Individual.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = Individual.DOMAIN_NAME_WITH_HYPHEN)
 public class Individual extends Party {
     @Transient
     public static final String DOMAIN_NAME = "Individual";

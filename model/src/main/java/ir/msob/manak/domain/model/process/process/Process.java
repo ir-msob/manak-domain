@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Process.DOMAIN_NAME)
-@DomainInfo(serviceName = Process.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Process.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = Process.DOMAIN_NAME_WITH_HYPHEN)
 public class Process extends BaseProcess implements Domain {
     @Transient
     public static final String DOMAIN_NAME = "Process";

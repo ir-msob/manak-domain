@@ -1,10 +1,12 @@
 package ir.msob.manak.domain.model.toolhub.toolprovider;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidation;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.domain.Dto;
+import ir.msob.manak.domain.model.common.ServiceName;
 import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolDescriptor;
 import lombok.*;
 
@@ -16,6 +18,7 @@ import java.util.SortedSet;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@DtoInfo(serviceName = ServiceName.TOOL_HUB, version = "v1")
 public class ToolProviderDto extends ToolProvider implements Dto {
     @Serial
     private static final long serialVersionUID = -8938843863766936000L;

@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Task.DOMAIN_NAME)
-@DomainInfo(serviceName = Task.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Task.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = Task.DOMAIN_NAME_WITH_HYPHEN)
 public class Task extends BaseTask implements Domain {
     @Transient
     public static final String DOMAIN_NAME = "Task";

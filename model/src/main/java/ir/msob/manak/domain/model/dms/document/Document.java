@@ -38,7 +38,7 @@ import java.util.TreeSet;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @org.springframework.data.mongodb.core.mapping.Document(collection = Document.DOMAIN_NAME)
-@DomainInfo(serviceName = Document.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = Document.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = Document.DOMAIN_NAME_WITH_HYPHEN)
 public class Document extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "Document";

@@ -28,7 +28,7 @@ import java.util.TreeSet;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = FormSpecification.DOMAIN_NAME)
-@DomainInfo(serviceName = FormSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1", domainName = FormSpecification.DOMAIN_NAME_WITH_HYPHEN)
+@DomainInfo(domainName = FormSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class FormSpecification extends DomainAbstract {
     @Transient
     public static final String DOMAIN_NAME = "FormSpecification";

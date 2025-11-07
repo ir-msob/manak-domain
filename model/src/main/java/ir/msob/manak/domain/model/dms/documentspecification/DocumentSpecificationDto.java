@@ -1,9 +1,11 @@
 package ir.msob.manak.domain.model.dms.documentspecification;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.domain.Dto;
+import ir.msob.manak.domain.model.common.ServiceName;
 import lombok.*;
 
 import java.io.Serial;
@@ -14,6 +16,7 @@ import java.util.SortedSet;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@DtoInfo(serviceName = ServiceName.DMS, version = "v1")
 public class DocumentSpecificationDto extends DocumentSpecification implements Dto {
     @Serial
     private static final long serialVersionUID = -8938843863555451005L;
