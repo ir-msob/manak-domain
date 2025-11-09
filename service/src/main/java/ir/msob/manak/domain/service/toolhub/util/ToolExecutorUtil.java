@@ -2,20 +2,108 @@ package ir.msob.manak.domain.service.toolhub.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.netty.handler.timeout.TimeoutException;
+import ir.msob.manak.domain.model.toolhub.dto.InvokeRequest;
+import ir.msob.manak.domain.model.toolhub.dto.InvokeResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.codec.DecodingException;
 import org.springframework.web.reactive.function.client.WebClientRequestException;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
+import reactor.core.publisher.Mono;
 
 import java.net.ConnectException;
 import java.net.UnknownHostException;
+import java.time.Instant;
+import java.util.Arrays;
 
 /**
- * Utility class for building consistent and detailed error responses
+ * Service class for building consistent and detailed error responses
  * when executing tools.
  */
 public class ToolExecutorUtil {
 
+    private static final Logger logger = LoggerFactory.getLogger(ToolExecutorUtil.class);
     private static final String DEFAULT_ERROR_MESSAGE = "An unexpected error occurred during tool execution.";
+    private static final String DEFAULT_ERROR_CODE = "EXECUTION_ERROR";
+
+    /**
+     * Builds an error response for tool execution with exception details and default error code
+     *
+     * @param dto the invoke request DTO
+     * @param e   the exception that occurred
+     * @return Mono containing the error response
+     */
+    public static Mono<InvokeResponse> buildError(InvokeRequest dto, Throwable e) {
+        return buildError(dto, e, DEFAULT_ERROR_CODE);
+    }
+
+    /**
+     * Builds an error response for tool execution with custom error code
+     *
+     * @param dto  the invoke request DTO
+     * @param e    the exception that occurred
+     * @param code the error code
+     * @return Mono containing the error response
+     */
+    public static Mono<InvokeResponse> buildError(InvokeRequest dto, Throwable e, String code) {
+        String errorMsg = resolveErrorMessage(e);
+        logger.error("Error invoking tool [{}]: {}", dto.getToolId(), errorMsg, e);
+        return buildErrorResponse(dto, errorMsg, e.getStackTrace(), code);
+    }
+
+    /**
+     * Builds an error response for tool execution with a custom message and default error code
+     *
+     * @param dto     the invoke request DTO
+     * @param message the error message
+     * @return Mono containing the error response
+     */
+    public static Mono<InvokeResponse> buildError(InvokeRequest dto, String message) {
+        return buildError(dto, message, DEFAULT_ERROR_CODE);
+    }
+
+    /**
+     * Builds an error response for tool execution with a custom message and error code
+     *
+     * @param dto     the invoke request DTO
+     * @param message the error message
+     * @param code    the error code
+     * @return Mono containing the error response
+     */
+    public static Mono<InvokeResponse> buildError(InvokeRequest dto, String message, String code) {
+        logger.warn("Returning error for tool [{}]: {}", dto.getToolId(), message);
+        return buildErrorResponse(dto, message, null, code);
+    }
+
+    /**
+     * Internal method to build error response with common logic
+     *
+     * @param dto        the invoke request DTO
+     * @param message    the error message
+     * @param stackTrace the stack trace (optional)
+     * @param code       the error code
+     * @return Mono containing the error response
+     */
+    private static Mono<InvokeResponse> buildErrorResponse(InvokeRequest dto, String message, StackTraceElement[] stackTrace, String code) {
+        String toolId = dto.getToolId();
+        String formattedMessage = buildErrorResponse(toolId, message);
+
+        InvokeResponse.ErrorInfo.ErrorInfoBuilder errorBuilder = InvokeResponse.ErrorInfo.builder()
+                .code(code)
+                .message(formattedMessage)
+                .details(dto.getParameters());
+
+        if (stackTrace != null) {
+            errorBuilder.stackTrace(Arrays.toString(stackTrace));
+        }
+
+        return Mono.just(InvokeResponse.builder()
+                .id(dto.getId())
+                .toolId(toolId)
+                .error(errorBuilder.build())
+                .executedAt(Instant.now())
+                .build());
+    }
 
     /**
      * Builds a full error response string including tool ID and a resolved message.

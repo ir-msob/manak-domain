@@ -22,6 +22,7 @@ public class ToolExecutorRegistry {
     @Getter
     private Map<String, ToolExecutor> executorMap = new HashMap<>();
 
+
     @PostConstruct
     private void init() {
         log.info("Starting initialization of ToolExecutorRegistry...");
@@ -36,19 +37,19 @@ public class ToolExecutorRegistry {
 
         // Log details about each executor before registration
         executors.forEach(executor -> {
-            String toolKey = executor.getToolDescriptor().getKey();
             String toolName = executor.getToolDescriptor().getName();
-            log.debug("Registering ToolExecutor: key='{}', name='{}'", toolKey, toolName);
+            String toolVersion = executor.getToolDescriptor().getVersion();
+            log.debug("Registering ToolExecutor: name='{}', version='{}'", toolName, toolVersion);
         });
 
         try {
             executorMap = executors.stream()
                     .collect(Collectors.toMap(
-                            o -> o.getToolDescriptor().getKey(),
+                            o -> o.getToolDescriptor().getToolId(),
                             h -> h,
                             (existing, replacement) -> {
                                 log.warn("Duplicate ToolExecutor key detected: '{}'. Keeping the existing one.",
-                                        existing.getToolDescriptor().getKey());
+                                        existing.getToolDescriptor().getToolId());
                                 return existing;
                             }));
 

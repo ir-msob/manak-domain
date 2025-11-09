@@ -1,8 +1,10 @@
 package ir.msob.manak.domain.model.toolhub.dto;
 
 import ir.msob.jima.core.commons.shared.ModelType;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +14,14 @@ import java.util.Map;
 @AllArgsConstructor
 @Builder
 public class InvokeRequest extends ModelType {
+    private String id;
+    @NotBlank
     private String toolId;
-
-    @Builder.Default
-    private Map<String, Object> params = new HashMap<>();
+    @Singular
+    private Map<String, Object> parameters = new HashMap<>();
+    @Singular("contextEntry")
+    private Map<String, Object> context = new HashMap<>();
+    @Singular("metaEntry")
+    private Map<String, Object> metadata = new HashMap<>();
+    private Instant timestamp;
 }

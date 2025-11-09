@@ -6,7 +6,7 @@ import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.jima.core.commons.shared.ModelType;
 import ir.msob.manak.domain.model.common.ServiceName;
-import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ToolParameter;
+import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ParameterDescriptor;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -31,11 +31,7 @@ public class ToolRegistryDto extends ModelType {
     @NotBlank
     private String description;
     @Singular("inputParam")
-    private Map<String, ToolParameter> inputSchema = new HashMap<>();
+    private Map<String, ParameterDescriptor> inputSchema = new HashMap<>();
     @NotNull
-    private ToolParameter outputSchema;
-    @NotNull
-    private ToolParameter errorSchema;
-    @NotNull
-    private String version;
+    private ParameterDescriptor outputSchema;
 }

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.util.Objects;
+import java.util.*;
 
 @Setter
 @Getter
@@ -19,16 +19,23 @@ import java.util.Objects;
 public class ToolDescriptor extends ChildDomainAbstract implements Comparable<ToolDescriptor> {
     @NotBlank
     private String name;
-    @NotBlank
-    private String key;
-    @NotBlank
-    private String description;
-    @NotNull
-    private RequestSchema inputSchema;
-    @NotNull
-    private ResponseSchema outputSchema;
+    private String displayName;
+    private String category;
     @NotNull
     private String version;
+    @Singular
+    private Set<String> tags = new HashSet<>();
+    @NotBlank
+    private String description;
+    @Singular
+    private Map<String, ParameterDescriptor> parameters = new HashMap<>();
+    private ResponseDescriptor response;
+    @Singular
+    private List<Example> examples;
+    @Singular
+    private List<ErrorDescriptor> errors;
+    private RetryPolicy retryPolicy;
+    private TimeoutPolicy timeoutPolicy;
     @NotNull
     @Builder.Default
     private ToolDescriptorStatus status = ToolDescriptorStatus.ACTIVE;
@@ -39,6 +46,9 @@ public class ToolDescriptor extends ChildDomainAbstract implements Comparable<To
     @Builder.Default
     private AuditInfo auditInfo = AuditInfo.builder().build();
 
+    public String getToolId() {
+        return String.format("%s:%s:%s", getCategory(), getName(), getVersion());
+    }
 
     @Override
     public int compareTo(ToolDescriptor o) {
@@ -50,8 +60,7 @@ public class ToolDescriptor extends ChildDomainAbstract implements Comparable<To
     }
 
     public enum ToolDescriptorStatus {
-        ACTIVE,
-        INACTIVE,
-        DEPRECATED
+        ACTIVE, DEPRECATED, REMOVED, DRAFT
     }
+
 }
