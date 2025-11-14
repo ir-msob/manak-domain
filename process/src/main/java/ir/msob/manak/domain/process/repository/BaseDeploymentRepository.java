@@ -1,14 +1,15 @@
 package ir.msob.manak.domain.process.repository;
 
-import ir.msob.jima.process.ral.activiti.beans.query.DeploymentQueryBuilder;
-import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiDeploymentRepository;
+import ir.msob.jima.core.commons.repository.BaseQueryBuilder;
+import ir.msob.jima.process.ral.camunda.beans.query.CamundaApiClient;
+import ir.msob.jima.process.ral.camunda.beans.repository.BaseCamundaDeploymentRepository;
 import ir.msob.manak.domain.model.process.deployment.Deployment;
 import ir.msob.manak.domain.model.process.deployment.DeploymentCriteria;
-import org.activiti.engine.RepositoryService;
 
-public abstract class BaseDeploymentRepository extends BaseActivitiDeploymentRepository<Deployment, DeploymentCriteria> {
+public abstract class BaseDeploymentRepository extends BaseCamundaDeploymentRepository<Deployment, DeploymentCriteria> {
 
-    public BaseDeploymentRepository(RepositoryService repositoryService, DeploymentQueryBuilder queryBuilder) {
-        super(repositoryService, queryBuilder);
+
+    public BaseDeploymentRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+        super(camundaClient, queryBuilder);
     }
 }

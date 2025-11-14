@@ -1,14 +1,15 @@
 package ir.msob.manak.domain.process.repository;
 
-import ir.msob.jima.process.ral.activiti.beans.query.ProcessInstanceQueryBuilder;
-import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiProcessRepository;
+
+import ir.msob.jima.core.commons.repository.BaseQueryBuilder;
+import ir.msob.jima.process.ral.camunda.beans.query.CamundaApiClient;
+import ir.msob.jima.process.ral.camunda.beans.repository.BaseCamundaProcessRepository;
 import ir.msob.manak.domain.model.process.process.Process;
 import ir.msob.manak.domain.model.process.process.ProcessCriteria;
-import org.activiti.engine.RuntimeService;
 
-public abstract class BaseProcessRepository extends BaseActivitiProcessRepository<Process, ProcessCriteria> {
+public abstract class BaseProcessRepository extends BaseCamundaProcessRepository<Process, ProcessCriteria> {
 
-    public BaseProcessRepository(RuntimeService runtimeService, ProcessInstanceQueryBuilder queryBuilder) {
-        super(runtimeService, queryBuilder);
+    public BaseProcessRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+        super(camundaClient, queryBuilder);
     }
 }

@@ -1,14 +1,16 @@
 package ir.msob.manak.domain.process.repository;
 
-import ir.msob.jima.process.ral.activiti.beans.query.TaskQueryBuilder;
-import ir.msob.jima.process.ral.activiti.beans.repository.BaseActivitiTaskRepository;
+
+import ir.msob.jima.core.commons.repository.BaseQueryBuilder;
+import ir.msob.jima.process.ral.camunda.beans.query.CamundaApiClient;
+import ir.msob.jima.process.ral.camunda.beans.repository.BaseCamundaTaskRepository;
 import ir.msob.manak.domain.model.process.task.Task;
 import ir.msob.manak.domain.model.process.task.TaskCriteria;
-import org.activiti.engine.TaskService;
 
-public abstract class BaseTaskRepository extends BaseActivitiTaskRepository<Task, TaskCriteria> {
+public abstract class BaseTaskRepository extends BaseCamundaTaskRepository<Task, TaskCriteria> {
 
-    public BaseTaskRepository(TaskService taskService, TaskQueryBuilder queryBuilder) {
-        super(taskService, queryBuilder);
+
+    public BaseTaskRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+        super(camundaClient, queryBuilder);
     }
 }

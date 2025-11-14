@@ -7,7 +7,6 @@ import ir.msob.manak.domain.model.toolhub.dto.InvokeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.codec.DecodingException;
-import org.springframework.web.reactive.function.client.WebClientRequestException;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
 
@@ -138,7 +137,6 @@ public class ToolExecutorUtil {
 
         return switch (e) {
             case WebClientResponseException wcre -> formatWebClientResponse(wcre);
-            case WebClientRequestException wcreq -> formatWebClientRequest(wcreq);
             case TimeoutException ignored -> "Request timed out while waiting for response.";
             case ConnectException ignored -> "Failed to connect to remote service.";
             case UnknownHostException ignored -> "Remote host could not be resolved.";
@@ -156,18 +154,6 @@ public class ToolExecutorUtil {
             body = "(empty response body)";
         }
         return String.format("HTTP %s: %s", status, body);
-    }
-
-    private static String formatWebClientRequest(WebClientRequestException e) {
-        Throwable cause = e.getCause();
-        if (cause instanceof TimeoutException) {
-            return "Request timed out while connecting to server.";
-        } else if (cause instanceof ConnectException) {
-            return "Unable to connect to server.";
-        } else if (cause instanceof UnknownHostException) {
-            return "Unknown host: " + cause.getMessage();
-        }
-        return "WebClient request failed: " + safeMessage(e.getMessage());
     }
 
     private static String safeMessage(String message) {
