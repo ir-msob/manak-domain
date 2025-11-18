@@ -52,12 +52,12 @@ public class ToolService {
                             InvokeResponse.builder()
                                     .toolId(request.getToolId())
                                     .error(InvokeResponse.ErrorInfo.builder()
-                                                    .code("EXECUTION_ERROR")
-                                                    .message(ToolExecutorUtil.buildErrorResponse(toolId, e))
-                                                    .stackTrace(Arrays.toString(e.getStackTrace()))
-                                                    .build()
+                                            .code("EXECUTION_ERROR")
+                                            .message(ToolExecutorUtil.buildErrorResponse(toolId, e))
+                                            .stackTrace(Arrays.toString(e.getStackTrace()))
+                                            .build()
 
-                                            )
+                                    )
                                     .executedAt(Instant.now())
                                     .build()
                     ));

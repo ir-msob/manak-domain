@@ -12,10 +12,7 @@ import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serial;
 import java.util.SortedSet;
@@ -34,15 +31,18 @@ public class Party extends DomainAbstract {
     private String name;
     private String description;
 
+    @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
     @ChildDomain(cdClass = ContactMedium.class, ccClass = ContactMediumCriteria.class)
     private SortedSet<ContactMedium> contactMediums = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 

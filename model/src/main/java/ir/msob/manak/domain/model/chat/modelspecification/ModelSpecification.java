@@ -11,10 +11,7 @@ import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -49,12 +46,15 @@ public class ModelSpecification extends DomainAbstract {
     private Double temperature;
     private Integer numPredict;
 
+    @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 

@@ -13,10 +13,7 @@ import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import ir.msob.manak.domain.model.rms.repository.branch.Branch;
 import ir.msob.manak.domain.model.rms.repository.branch.BranchCriteria;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -53,12 +50,15 @@ public class RepositorySpecification extends DomainAbstract {
     @ChildDomain(cdClass = Branch.class, ccClass = BranchCriteria.class)
     private SortedSet<Branch> branches = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 

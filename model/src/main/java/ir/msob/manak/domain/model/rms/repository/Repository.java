@@ -60,12 +60,15 @@ public class Repository extends DomainAbstract {
     @ChildDomain(cdClass = Branch.class, ccClass = BranchCriteria.class)
     private SortedSet<Branch> branches = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
     private SortedSet<Characteristic> characteristics = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = ObjectValidation.class, ccClass = ObjectValidationCriteria.class)
     private SortedSet<ObjectValidation> objectValidations = new TreeSet<>();
 
+    @Singular
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
