@@ -37,7 +37,7 @@ public class Workflow extends DomainAbstract {
     @DBRef
     private WorkflowSpecification specification;
     private String correlationId;
-    private String executionStatus;
+    private WorkflowExecutionStatus executionStatus = WorkflowExecutionStatus.INITIALIZED;
     private String resultType;
     private Instant startedAt;
     private Instant endedAt;
@@ -48,6 +48,7 @@ public class Workflow extends DomainAbstract {
     private String currentStage;
     private Metrics metrics;
     private List<AuditEvent> auditTrail = new ArrayList<>();
+    private List<WorkerHistory> workersHistory = new ArrayList<>();
 
     @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
@@ -61,12 +62,43 @@ public class Workflow extends DomainAbstract {
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
-    public Workflow(String id) {
+    public Workflow(String id, WorkflowSpecification specification, String correlationId, WorkflowExecutionStatus executionStatus, String resultType, Instant startedAt, Instant endedAt, Map<String, Object> context, List<Cycle> cycles, int currentCycleNumber, String currentStage, Metrics metrics, List<AuditEvent> auditTrail, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
         super(id);
+        this.specification = specification;
+        this.correlationId = correlationId;
+        this.executionStatus = executionStatus;
+        this.resultType = resultType;
+        this.startedAt = startedAt;
+        this.endedAt = endedAt;
+        this.context = context;
+        this.cycles = cycles;
+        this.currentCycleNumber = currentCycleNumber;
+        this.currentStage = currentStage;
+        this.metrics = metrics;
+        this.auditTrail = auditTrail;
+        this.characteristics = characteristics;
+        this.objectValidations = objectValidations;
+        this.relatedActions = relatedActions;
     }
 
     public enum FN {
         name, description
+    }
+
+    public enum WorkflowExecutionStatus {
+        INITIALIZED, IN_PROGRESS, COMPLETED
+    }
+
+    public enum CycleExecutionStatus {
+        INITIALIZED, IN_PROGRESS, COMPLETED
+    }
+
+    public enum StageExecutionStatus {
+        INITIALIZED, ERROR, SUCCESS
+    }
+
+    public enum WorkerExecutionStatus {
+        ERROR, SUCCESS
     }
 
     @Data
@@ -74,8 +106,8 @@ public class Workflow extends DomainAbstract {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Cycle {
-        private int cycleNumber;
-        private String status;
+        private String id;
+        private CycleExecutionStatus executionStatus = CycleExecutionStatus.INITIALIZED;
         private String trigger;
         private String cycleCategory;
         private Instant createdAt;
@@ -89,10 +121,9 @@ public class Workflow extends DomainAbstract {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class StageHistory {
-        private int order;
-        private String stageName;
-        private String executionStatus;
-        private String resultType;
+        private String id;
+        private String stageKey;
+        private StageExecutionStatus executionStatus = StageExecutionStatus.INITIALIZED;
         private int attempt;
         private String workerId;
         private Map<String, Object> stageInput = new HashMap<>();
@@ -121,5 +152,15 @@ public class Workflow extends DomainAbstract {
         private Instant timestamp;
         private String eventType;
         private Map<String, Object> data = new HashMap<>();
+    }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class WorkerHistory {
+        private WorkerExecutionStatus executionStatus;
+        private String error;
+        private Instant timestamp;
     }
 }

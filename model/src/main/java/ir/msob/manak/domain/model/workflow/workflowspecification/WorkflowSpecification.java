@@ -140,7 +140,8 @@ public class WorkflowSpecification extends DomainAbstract {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class StageSpec {
-        private String stageName;
+        private String name;
+        private String key;
         private String type; // ai, system, human, terminal
         private boolean firstStage;
         @Singular("inputEntry")
