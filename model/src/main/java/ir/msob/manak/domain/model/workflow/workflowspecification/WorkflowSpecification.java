@@ -145,9 +145,9 @@ public class WorkflowSpecification extends DomainAbstract {
         private String type; // ai, system, human, terminal
         private boolean firstStage;
         @Singular("inputEntry")
-        private Map<String, String> inputMapping = new HashMap<>();
+        private Map<String, Object> inputMapping = new HashMap<>();
         @Singular("outputEntry")
-        private Map<String, String> outputMapping = new HashMap<>();
+        private Map<String, Object> outputMapping = new HashMap<>();
         private String inputSchemaRef;
         private String outputSchemaRef;
         private ExecutionHints executionHints;

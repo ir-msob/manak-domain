@@ -26,7 +26,7 @@ public class WorkflowDto extends Workflow implements Dto {
     private static final long serialVersionUID = -8938843864469657000L;
 
     @Builder
-    public WorkflowDto(String id, WorkflowSpecification specification, String correlationId, WorkflowExecutionStatus executionStatus, String resultType, Instant startedAt, Instant endedAt, Map<String, Object> context, List<Cycle> cycles, int currentCycleNumber, String currentStage, Metrics metrics, List<AuditEvent> auditTrail, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
-        super(id, specification, correlationId, executionStatus, resultType, startedAt, endedAt, context, cycles, currentCycleNumber, currentStage, metrics, auditTrail, characteristics, objectValidations, relatedActions);
+    public WorkflowDto(String id, WorkflowSpecification specification, String correlationId, WorkflowExecutionStatus executionStatus, Instant startedAt, Instant endedAt, Map<String, Object> context, List<Cycle> cycles, String currentCycle, String currentStage, Metrics metrics, List<AuditEvent> auditTrail, List<WorkerHistory> workersHistory, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
+        super(id, specification, correlationId, executionStatus, startedAt, endedAt, context, cycles, currentCycle, currentStage, metrics, auditTrail, workersHistory, characteristics, objectValidations, relatedActions);
     }
 }

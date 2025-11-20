@@ -10,6 +10,7 @@ import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidati
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
+import ir.msob.manak.domain.model.workflow.WorkerExecutionStatus;
 import ir.msob.manak.domain.model.workflow.workflowspecification.WorkflowSpecification;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -37,14 +38,13 @@ public class Workflow extends DomainAbstract {
     @DBRef
     private WorkflowSpecification specification;
     private String correlationId;
-    private WorkflowExecutionStatus executionStatus = WorkflowExecutionStatus.INITIALIZED;
-    private String resultType;
+    private WorkflowExecutionStatus executionStatus = WorkflowExecutionStatus.IN_PROGRESS;
     private Instant startedAt;
     private Instant endedAt;
     private Map<String, Object> context = new HashMap<>();
     @Singular
     private List<Cycle> cycles = new ArrayList<>();
-    private int currentCycleNumber;
+    private String currentCycle;
     private String currentStage;
     private Metrics metrics;
     private List<AuditEvent> auditTrail = new ArrayList<>();
@@ -62,20 +62,20 @@ public class Workflow extends DomainAbstract {
     @ChildDomain(cdClass = RelatedAction.class, ccClass = RelatedActionCriteria.class)
     private SortedSet<RelatedAction> relatedActions = new TreeSet<>();
 
-    public Workflow(String id, WorkflowSpecification specification, String correlationId, WorkflowExecutionStatus executionStatus, String resultType, Instant startedAt, Instant endedAt, Map<String, Object> context, List<Cycle> cycles, int currentCycleNumber, String currentStage, Metrics metrics, List<AuditEvent> auditTrail, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
+    public Workflow(String id, WorkflowSpecification specification, String correlationId, WorkflowExecutionStatus executionStatus, Instant startedAt, Instant endedAt, Map<String, Object> context, List<Cycle> cycles, String currentCycle, String currentStage, Metrics metrics, List<AuditEvent> auditTrail, List<WorkerHistory> workersHistory, SortedSet<Characteristic> characteristics, SortedSet<ObjectValidation> objectValidations, SortedSet<RelatedAction> relatedActions) {
         super(id);
         this.specification = specification;
         this.correlationId = correlationId;
         this.executionStatus = executionStatus;
-        this.resultType = resultType;
         this.startedAt = startedAt;
         this.endedAt = endedAt;
         this.context = context;
         this.cycles = cycles;
-        this.currentCycleNumber = currentCycleNumber;
+        this.currentCycle = currentCycle;
         this.currentStage = currentStage;
         this.metrics = metrics;
         this.auditTrail = auditTrail;
+        this.workersHistory = workersHistory;
         this.characteristics = characteristics;
         this.objectValidations = objectValidations;
         this.relatedActions = relatedActions;
@@ -86,19 +86,15 @@ public class Workflow extends DomainAbstract {
     }
 
     public enum WorkflowExecutionStatus {
-        INITIALIZED, IN_PROGRESS, COMPLETED
+        IN_PROGRESS, COMPLETED
     }
 
     public enum CycleExecutionStatus {
-        INITIALIZED, IN_PROGRESS, COMPLETED
+        IN_PROGRESS, COMPLETED
     }
 
     public enum StageExecutionStatus {
         INITIALIZED, ERROR, SUCCESS
-    }
-
-    public enum WorkerExecutionStatus {
-        ERROR, SUCCESS
     }
 
     @Data
@@ -107,7 +103,7 @@ public class Workflow extends DomainAbstract {
     @AllArgsConstructor
     public static class Cycle {
         private String id;
-        private CycleExecutionStatus executionStatus = CycleExecutionStatus.INITIALIZED;
+        private CycleExecutionStatus executionStatus = CycleExecutionStatus.IN_PROGRESS;
         private String trigger;
         private String cycleCategory;
         private Instant createdAt;
@@ -128,7 +124,7 @@ public class Workflow extends DomainAbstract {
         private String workerId;
         private Map<String, Object> stageInput = new HashMap<>();
         private Map<String, Object> stageOutput = new HashMap<>();
-        private Map<String, Object> error = new HashMap<>();
+        private String error;
         private List<String> logs = new ArrayList<>();
         private Instant startedAt;
         private Instant endedAt;
