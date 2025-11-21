@@ -1,9 +1,8 @@
 package ir.msob.manak.domain.model.workflow.stage;
 
-import ir.msob.jima.core.commons.domain.DomainInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.manak.core.model.jima.domain.Dto;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.io.Serial;

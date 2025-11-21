@@ -12,8 +12,6 @@ import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCrit
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import ir.msob.manak.domain.model.common.model.ParameterDescriptor;
 import ir.msob.manak.domain.model.common.model.RetryPolicy;
-import ir.msob.manak.domain.model.workflow.workflowspecification.WorkflowSpecification;
-import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
