@@ -11,6 +11,7 @@ import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import ir.msob.manak.domain.model.workflow.WorkerExecutionStatus;
+import ir.msob.manak.domain.model.workflow.stage.Stage;
 import ir.msob.manak.domain.model.workflow.workflowspecification.WorkflowSpecification;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -118,7 +119,8 @@ public class Workflow extends DomainAbstract {
     @AllArgsConstructor
     public static class StageHistory {
         private String id;
-        private String stageKey;
+        @DBRef
+        private Stage stage;
         private StageExecutionStatus executionStatus = StageExecutionStatus.INITIALIZED;
         private int attempt;
         private String workerId;
