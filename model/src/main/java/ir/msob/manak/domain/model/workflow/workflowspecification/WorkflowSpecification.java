@@ -11,9 +11,12 @@ import ir.msob.manak.core.model.jima.childdomain.objectvalidation.ObjectValidati
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
+import ir.msob.manak.domain.model.workflow.stage.Stage;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
@@ -27,12 +30,15 @@ import java.util.*;
 @Document(collection = WorkflowSpecification.DOMAIN_NAME)
 @DomainInfo(domainName = WorkflowSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class WorkflowSpecification extends DomainAbstract {
+
     @Transient
     public static final String DOMAIN_NAME = "WorkflowSpecification";
     @Transient
     public static final String DOMAIN_NAME_WITH_HYPHEN = "workflow-specification";
+
     @Serial
     private static final long serialVersionUID = -8938843864444493000L;
+
     @NotBlank
     private String name;
     private String key;
@@ -43,6 +49,7 @@ public class WorkflowSpecification extends DomainAbstract {
     private List<String> resultTypes;
     @Singular
     private List<StageSpec> stages = new ArrayList<>();
+    private Map<String, Object> context = new HashMap<>();
     private GlobalRetryPolicy globalRetryPolicy;
     private Hooks hooks;
 
@@ -68,43 +75,22 @@ public class WorkflowSpecification extends DomainAbstract {
         name, description
     }
 
+    /**
+     * Updated Transition to support complex conditions
+     */
     @Data
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Transition {
-        private Map<String, String> on = new HashMap<>();
+        /**
+         * Key = variable/expression (e.g. $workflowContext.field, $resultType)
+         * Value = either:
+         * - simple literal value (String/Number/Boolean)
+         * - Map<String,Object> for operators: $in, $not, $exists, $regex, $gt, $gte, $lt, $lte
+         */
+        private Map<String, Object> on = new HashMap<>();
         private String goTo;
-    }
-
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class ExecutionHints {
-        private String model;
-        private int maxContextTokens;
-        private int chunkSizeLines;
-    }
-
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class RetryPolicy {
-        private int maxAttempts;
-        private Backoff backoff;
-        private List<String> retryOn = new ArrayList<>();
-    }
-
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Backoff {
-        private String type; // exponential, fixed
-        private long initialMs;
-        private long maxMs;
     }
 
     @Data
@@ -125,7 +111,6 @@ public class WorkflowSpecification extends DomainAbstract {
         private int maxAttempts;
     }
 
-
     @Data
     @Builder
     @NoArgsConstructor
@@ -140,21 +125,20 @@ public class WorkflowSpecification extends DomainAbstract {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class StageSpec {
-        private String name;
-        private String key;
-        private String type; // ai, system, human, terminal
+        @DBRef
+        @NotNull
+        private Stage stage;
         private boolean firstStage;
+
         @Singular("inputEntry")
         private Map<String, Object> inputMapping = new HashMap<>();
+
         @Singular("outputEntry")
         private Map<String, Object> outputMapping = new HashMap<>();
-        private String inputSchemaRef;
-        private String outputSchemaRef;
-        private ExecutionHints executionHints;
-        private RetryPolicy retryPolicy;
-        private long timeoutMs;
+
         @Singular
         private List<Transition> transitions = new ArrayList<>();
+
         private HumanTask humanTask;
     }
 }

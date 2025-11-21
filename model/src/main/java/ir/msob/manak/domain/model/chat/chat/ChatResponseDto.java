@@ -17,4 +17,5 @@ public class ChatResponseDto extends ModelType {
     private String message;
     private String response;
     private List<String> tools = new ArrayList<>();
+    private Object schema;
 }

@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.toolhub.dto;
+package ir.msob.manak.domain.model.common.dto;
 
 import ir.msob.jima.core.commons.shared.ModelType;
 import jakarta.validation.constraints.NotBlank;

@@ -6,7 +6,7 @@ import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.jima.core.commons.shared.ModelType;
 import ir.msob.manak.domain.model.common.ServiceName;
-import ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor.ParameterDescriptor;
+import ir.msob.manak.domain.model.common.model.ParameterDescriptor;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

@@ -1,6 +1,7 @@
 package ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import ir.msob.manak.domain.model.common.model.ParameterDescriptor;
 import lombok.*;
 
 import java.util.ArrayList;

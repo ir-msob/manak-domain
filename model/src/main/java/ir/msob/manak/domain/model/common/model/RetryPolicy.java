@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.toolhub.toolprovider.tooldescriptor;
+package ir.msob.manak.domain.model.common.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

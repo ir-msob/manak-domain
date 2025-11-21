@@ -24,4 +24,5 @@ public class ChatRequestDto extends ModelType {
     private String modelSpecificationKey;
     private String message;
     private List<String> tools = new ArrayList<>();
+    private Object schema;
 }

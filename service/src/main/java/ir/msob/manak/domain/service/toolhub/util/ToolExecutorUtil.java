@@ -2,8 +2,8 @@ package ir.msob.manak.domain.service.toolhub.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.netty.handler.timeout.TimeoutException;
-import ir.msob.manak.domain.model.toolhub.dto.InvokeRequest;
-import ir.msob.manak.domain.model.toolhub.dto.InvokeResponse;
+import ir.msob.manak.domain.model.common.dto.InvokeRequest;
+import ir.msob.manak.domain.model.common.dto.InvokeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.codec.DecodingException;
