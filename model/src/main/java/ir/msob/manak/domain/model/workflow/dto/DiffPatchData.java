@@ -5,13 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RepositoryBranch implements Serializable {
-    private String repositoryId;
-    private String branchName;
+public class DiffPatchData {
+    private List<RepositoryDiffPatch>  repositoryDiffPatches=new ArrayList<>();
 }

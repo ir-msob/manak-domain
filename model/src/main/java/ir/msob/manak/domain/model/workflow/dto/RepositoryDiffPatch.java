@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RepositoryDiffPatch {
+public class RepositoryDiffPatch implements Serializable {
     private String repositoryId;
     private String branchName;
     private List<DiffPatch> diffPatchList = new ArrayList<>();
@@ -21,7 +22,7 @@ public class RepositoryDiffPatch {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class DiffPatch {
+    public static class DiffPatch implements Serializable{
         private String filePath;
         private String diffText;
     }
