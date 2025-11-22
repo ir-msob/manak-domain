@@ -24,6 +24,8 @@ public class ToolExecutorUtil {
     private static final Logger logger = LoggerFactory.getLogger(ToolExecutorUtil.class);
     private static final String DEFAULT_ERROR_MESSAGE = "An unexpected error occurred during tool execution.";
     private static final String DEFAULT_ERROR_CODE = "EXECUTION_ERROR";
+    private ToolExecutorUtil() {
+    }
 
     /**
      * Builds an error response for tool execution with exception details and default error code

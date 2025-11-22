@@ -99,7 +99,7 @@ public class WorkflowSpecification extends DomainAbstract {
     @AllArgsConstructor
     public static class HumanTask {
         private String assignee;
-        private long SLASeconds;
+        private long SlaSeconds;
         private boolean allowDelegate;
     }
 

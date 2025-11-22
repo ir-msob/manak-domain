@@ -10,7 +10,7 @@ import ir.msob.manak.domain.model.process.task.TaskCriteria;
 public abstract class BaseTaskRepository extends BaseCamundaTaskRepository<Task, TaskCriteria> {
 
 
-    public BaseTaskRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+    protected BaseTaskRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
         super(camundaClient, queryBuilder);
     }
 }

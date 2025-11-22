@@ -9,7 +9,7 @@ import ir.msob.manak.domain.model.process.process.ProcessCriteria;
 
 public abstract class BaseProcessRepository extends BaseCamundaProcessRepository<Process, ProcessCriteria> {
 
-    public BaseProcessRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+    protected BaseProcessRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
         super(camundaClient, queryBuilder);
     }
 }

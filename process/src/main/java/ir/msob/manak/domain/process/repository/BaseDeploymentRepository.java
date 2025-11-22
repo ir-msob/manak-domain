@@ -9,7 +9,7 @@ import ir.msob.manak.domain.model.process.deployment.DeploymentCriteria;
 public abstract class BaseDeploymentRepository extends BaseCamundaDeploymentRepository<Deployment, DeploymentCriteria> {
 
 
-    public BaseDeploymentRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
+    protected BaseDeploymentRepository(CamundaApiClient camundaClient, BaseQueryBuilder queryBuilder) {
         super(camundaClient, queryBuilder);
     }
 }
