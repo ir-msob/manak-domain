@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class FileContentDto extends FileContentBasicDto {
+public class FileContent extends FileContentBasic {
     private String sha;
     private String url;
     private String encoding;

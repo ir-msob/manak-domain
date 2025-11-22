@@ -10,7 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @Builder
-public class FileContentBasicDto implements Serializable {
+public class FileContentBasic implements Serializable {
     private String name;
     private String path;
     private long size;
