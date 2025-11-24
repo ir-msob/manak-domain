@@ -58,7 +58,7 @@ public class ToolHubClient {
                 .doOnSuccess(res -> log.info("Tool invocation successful: toolId={}, response={}", dto.getToolId(), res))
                 .doOnError(e -> log.error("Error invoking tool via gateway: toolId={}, error={}", dto.getToolId(), e.getMessage(), e))
                 .onErrorResume(e -> Mono.just(InvokeResponse.builder()
-                        .id(dto.getId())
+                        .requestId(dto.getRequestId())
                         .toolId(dto.getToolId())
                         .error(InvokeResponse.ErrorInfo.builder()
                                 .stackTrace(Arrays.toString(e.getStackTrace()))

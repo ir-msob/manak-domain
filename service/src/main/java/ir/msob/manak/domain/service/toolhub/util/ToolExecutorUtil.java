@@ -99,7 +99,7 @@ public class ToolExecutorUtil {
         }
 
         return Mono.just(InvokeResponse.builder()
-                .id(dto.getId())
+                .requestId(dto.getRequestId())
                 .toolId(toolId)
                 .error(errorBuilder.build())
                 .executedAt(Instant.now())

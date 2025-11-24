@@ -15,7 +15,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Builder
 public class InvokeResponse extends ModelType {
-    private String id;
+    private String requestId;
     @NotBlank
     private String toolId;
     private Object result;
