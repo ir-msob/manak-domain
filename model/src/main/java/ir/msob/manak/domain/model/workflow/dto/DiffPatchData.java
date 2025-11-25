@@ -13,5 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DiffPatchData {
-    private List<RepositoryDiffPatch>  repositoryDiffPatches=new ArrayList<>();
+    private List<RepositoryDiffPatch> repositoryDiffPatches = new ArrayList<>();
 }

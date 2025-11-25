@@ -108,7 +108,9 @@ public class Workflow extends DomainAbstract {
         private String trigger;
         private String cycleCategory;
         private Instant createdAt;
+        @Singular("contextEntry")
         private Map<String, Object> context = new HashMap<>();
+        @Singular("stageHistory")
         private List<StageHistory> stagesHistory = new ArrayList<>();
         private Instant finishedAt;
     }
