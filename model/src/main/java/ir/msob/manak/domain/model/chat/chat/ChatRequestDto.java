@@ -6,6 +6,7 @@ import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.jima.core.commons.shared.ModelType;
 import ir.msob.manak.domain.model.common.ServiceName;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.Instant;
@@ -107,7 +108,9 @@ public class ChatRequestDto extends ModelType {
     @Builder
     @ToString
     public static class Message {
+        @NotNull
         private ContentType type;
+        @NotNull
         private Role role;
         /**
          * content meaning:
@@ -115,6 +118,7 @@ public class ChatRequestDto extends ModelType {
          * - RESOURCE: resource path
          * - BASE64: base64 encoded bytes
          */
+        @NotBlank
         private String content;
     }
 
@@ -163,7 +167,9 @@ public class ChatRequestDto extends ModelType {
     @Builder
     @ToString
     public static class HistoryEntry {
+        @NotNull
         private ContentType type;
+        @NotNull
         private Role role;
         /**
          * content meaning:
@@ -171,6 +177,7 @@ public class ChatRequestDto extends ModelType {
          * - RESOURCE: resource path
          * - BASE64: base64 encoded bytes
          */
+        @NotBlank
         private String content;
         private Instant timestamp;
         @Builder.Default
@@ -191,6 +198,7 @@ public class ChatRequestDto extends ModelType {
     @ToString
     public static class TemplateRef {
 
+        @NotNull
         private ContentType type;
         /**
          * content meaning:
@@ -198,6 +206,7 @@ public class ChatRequestDto extends ModelType {
          * - RESOURCE: resource path
          * - BASE64: base64 encoded bytes
          */
+        @NotBlank
         private String content;
 
         /**
