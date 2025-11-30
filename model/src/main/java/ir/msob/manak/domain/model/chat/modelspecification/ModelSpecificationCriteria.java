@@ -21,5 +21,6 @@ public class ModelSpecificationCriteria extends CriteriaAbstract {
     private Filter<String> name;
     private Filter<String> key;
     private Filter<String> modelName;
-    private Filter<String> type;
+    private Filter<String> providerType;
+    private Filter<ModelSpecification.ModelType> modelTypes;
 }

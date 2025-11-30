@@ -11,11 +11,14 @@ import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedAction;
 import ir.msob.manak.core.model.jima.childdomain.relatedaction.RelatedActionCriteria;
 import ir.msob.manak.core.model.jima.domain.DomainAbstract;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -42,7 +45,11 @@ public class ModelSpecification extends DomainAbstract {
     private String modelName;
     @NotBlank
     private String baseUrl;
-    private String type;
+    @NotBlank
+    private String providerType;
+    @Singular
+    @NotEmpty
+    private List<ModelType> modelTypes = new ArrayList<>();
     private Double temperature;
     private Integer numPredict;
 
@@ -64,7 +71,7 @@ public class ModelSpecification extends DomainAbstract {
         this.description = description;
     }
 
-    public enum FN {
-        name, description
+    public enum ModelType {
+        TOOLS, THINKING, EMBEDDING, CHAT
     }
 }
