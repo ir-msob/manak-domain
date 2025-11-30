@@ -4,7 +4,7 @@ public class ServiceName {
     public static final String VECTOR_HUB = "vector-hub";
     public static final String TOOL_HUB = "tool-hub";
     public static final String DMS = "dms";
-    public static final String CHAT = "chat";
+    public static final String AI = "ai";
     public static final String FORM = "form";
     public static final String PARTY = "party";
     public static final String PROCESS = "process";

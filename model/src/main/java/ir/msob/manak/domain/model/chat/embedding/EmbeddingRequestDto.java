@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Builder
-@DtoInfo(serviceName = ServiceName.CHAT, version = "v1")
+@DtoInfo(serviceName = ServiceName.AI, version = "v1")
 @DomainInfo(domainName = EmbeddingRequestDto.DOMAIN_NAME_WITH_HYPHEN)
 public class EmbeddingRequestDto extends ModelType {
     @JsonIgnore

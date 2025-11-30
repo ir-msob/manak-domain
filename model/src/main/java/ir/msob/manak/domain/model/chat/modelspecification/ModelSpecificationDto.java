@@ -13,7 +13,7 @@ import java.io.Serial;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@DtoInfo(serviceName = ServiceName.CHAT, version = "v1")
+@DtoInfo(serviceName = ServiceName.AI, version = "v1")
 public class ModelSpecificationDto extends ModelSpecification implements Dto {
     @Serial
     private static final long serialVersionUID = -8938843863590882000L;

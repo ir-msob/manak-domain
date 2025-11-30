@@ -18,7 +18,7 @@ import java.util.*;
 @AllArgsConstructor
 @ToString
 @Builder
-@DtoInfo(serviceName = ServiceName.CHAT, version = "v1")
+@DtoInfo(serviceName = ServiceName.AI, version = "v1")
 @DomainInfo(domainName = ChatRequestDto.DOMAIN_NAME_WITH_HYPHEN)
 public class ChatRequestDto extends ModelType {
     @JsonIgnore
