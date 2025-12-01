@@ -13,7 +13,6 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BranchCriteria extends ChildCriteriaAbstract<Branch> {
     private Filter<String> name;
     private Filter<Branch.Status> status;

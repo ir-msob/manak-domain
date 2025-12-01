@@ -11,7 +11,6 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorDescriptor {
     private String code;
     private String message;

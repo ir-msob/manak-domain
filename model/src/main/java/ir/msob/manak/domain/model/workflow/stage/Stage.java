@@ -28,7 +28,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Stage.DOMAIN_NAME)
 @DomainInfo(domainName = Stage.DOMAIN_NAME_WITH_HYPHEN)
 public class Stage extends DomainAbstract {

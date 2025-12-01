@@ -19,7 +19,6 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ToolDescriptor extends ChildDomainAbstract implements Comparable<ToolDescriptor> {
     @NotBlank
     private String name;

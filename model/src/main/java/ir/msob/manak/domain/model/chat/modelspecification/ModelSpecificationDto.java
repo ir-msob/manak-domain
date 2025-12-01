@@ -12,7 +12,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.AI, version = "v1")
 public class ModelSpecificationDto extends ModelSpecification implements Dto {
     @Serial

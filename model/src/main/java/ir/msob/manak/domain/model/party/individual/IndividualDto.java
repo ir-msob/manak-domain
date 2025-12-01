@@ -12,7 +12,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.PARTY, version = "v1")
 public class IndividualDto extends Individual implements Dto {
     @Serial

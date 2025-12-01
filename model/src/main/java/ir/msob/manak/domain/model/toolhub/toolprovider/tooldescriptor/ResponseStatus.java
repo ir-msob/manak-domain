@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseStatus {
     private String status;
     private String description;

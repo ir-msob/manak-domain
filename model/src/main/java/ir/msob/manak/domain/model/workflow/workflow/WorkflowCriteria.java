@@ -14,7 +14,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class WorkflowCriteria extends CriteriaAbstract {
     @Serial
     private static final long serialVersionUID = -8938843863913813000L;

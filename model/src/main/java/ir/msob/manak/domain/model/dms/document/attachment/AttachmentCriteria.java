@@ -13,7 +13,6 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AttachmentCriteria extends ChildCriteriaAbstract<Attachment> {
 
     private Filter<String> filePath;

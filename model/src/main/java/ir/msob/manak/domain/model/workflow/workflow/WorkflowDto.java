@@ -19,7 +19,6 @@ import java.util.SortedSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = Workflow.DOMAIN_NAME_WITH_HYPHEN, version = "v1")
 public class WorkflowDto extends Workflow implements Dto {
     @Serial

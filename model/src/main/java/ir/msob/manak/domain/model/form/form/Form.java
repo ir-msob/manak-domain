@@ -23,7 +23,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Form.DOMAIN_NAME)
 @DomainInfo(domainName = Form.DOMAIN_NAME_WITH_HYPHEN)
 public class Form extends DomainAbstract {

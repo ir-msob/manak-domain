@@ -13,7 +13,6 @@ import java.io.Serial;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ToolProviderCriteria extends CriteriaAbstract {
     @Serial
     private static final long serialVersionUID = -8938843863599063000L;

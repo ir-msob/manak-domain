@@ -20,7 +20,6 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.TOOL_HUB, version = "v1")
 @DomainInfo(domainName = ToolRegistryDto.DOMAIN_NAME_WITH_HYPHEN)
 public class ToolRegistryDto extends ModelType {

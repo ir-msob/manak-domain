@@ -22,7 +22,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Party extends DomainAbstract {
     @Serial
     private static final long serialVersionUID = -8938843863555452001L;

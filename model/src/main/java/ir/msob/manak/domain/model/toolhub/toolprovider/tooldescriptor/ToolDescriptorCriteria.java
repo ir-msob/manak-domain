@@ -12,7 +12,6 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ToolDescriptorCriteria extends ChildCriteriaAbstract<ToolDescriptor> {
 
     private Filter<String> name;

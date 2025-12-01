@@ -23,7 +23,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Task.DOMAIN_NAME)
 @DomainInfo(domainName = Task.DOMAIN_NAME_WITH_HYPHEN)
 public class Task extends BaseTask implements Domain {

@@ -26,7 +26,6 @@ import java.util.*;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Workflow.DOMAIN_NAME)
 @DomainInfo(domainName = Workflow.DOMAIN_NAME_WITH_HYPHEN)
 public class Workflow extends DomainAbstract {

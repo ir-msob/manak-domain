@@ -17,7 +17,6 @@ import java.util.SortedSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.TOOL_HUB, version = "v1")
 public class ToolProviderDto extends ToolProvider implements Dto {
     @Serial

@@ -11,7 +11,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = WorkflowSpecification.DOMAIN_NAME_WITH_HYPHEN, version = "v1")
 public class WorkflowSpecificationDto extends WorkflowSpecification implements Dto {
     @Serial

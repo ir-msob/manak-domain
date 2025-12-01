@@ -12,7 +12,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.RMS, version = "v1")
 public class GitSpecificationDto extends GitSpecification implements Dto {
     @Serial

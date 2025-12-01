@@ -23,7 +23,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Deployment.DOMAIN_NAME)
 @DomainInfo(domainName = Deployment.DOMAIN_NAME_WITH_HYPHEN)
 public class Deployment extends BaseDeployment implements Domain {

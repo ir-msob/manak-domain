@@ -15,7 +15,6 @@ import java.util.SortedSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.DMS, version = "v1")
 public class DocumentSpecificationDto extends DocumentSpecification implements Dto {
     @Serial

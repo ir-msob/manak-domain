@@ -26,7 +26,6 @@ import java.util.TreeSet;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = ModelSpecification.DOMAIN_NAME)
 @DomainInfo(domainName = ModelSpecification.DOMAIN_NAME_WITH_HYPHEN)
 public class ModelSpecification extends DomainAbstract {

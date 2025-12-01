@@ -19,7 +19,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Branch extends ChildDomainAbstract implements Comparable<Branch> {
 
     /**

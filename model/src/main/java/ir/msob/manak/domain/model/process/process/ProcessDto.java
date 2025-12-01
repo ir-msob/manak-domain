@@ -16,7 +16,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @DtoInfo(serviceName = ServiceName.PROCESS, version = "v1")
 public class ProcessDto extends BaseProcessDto implements Dto {
     @Serial

@@ -14,7 +14,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FormSpecificationCriteria extends CriteriaAbstract {
     @Serial
     private static final long serialVersionUID = -8938843865687936000L;

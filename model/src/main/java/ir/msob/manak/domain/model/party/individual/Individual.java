@@ -16,7 +16,6 @@ import java.io.Serial;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Document(collection = Individual.DOMAIN_NAME)
 @DomainInfo(domainName = Individual.DOMAIN_NAME_WITH_HYPHEN)
 public class Individual extends Party {

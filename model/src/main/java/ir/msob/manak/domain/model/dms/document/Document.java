@@ -36,7 +36,6 @@ import java.util.TreeSet;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @org.springframework.data.mongodb.core.mapping.Document(collection = Document.DOMAIN_NAME)
 @DomainInfo(domainName = Document.DOMAIN_NAME_WITH_HYPHEN)
 public class Document extends DomainAbstract {

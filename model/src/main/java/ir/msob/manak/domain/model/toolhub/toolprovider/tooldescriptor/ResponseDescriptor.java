@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDescriptor {
     @Singular
     private List<ResponseStatus> statuses = new ArrayList<>();
