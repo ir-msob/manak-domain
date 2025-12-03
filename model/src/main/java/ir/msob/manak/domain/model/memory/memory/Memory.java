@@ -1,6 +1,5 @@
 package ir.msob.manak.domain.model.memory.memory;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.childdomain.ChildDomain;
 import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.manak.core.model.jima.childdomain.characteristic.Characteristic;
@@ -41,14 +40,15 @@ public class Memory extends DomainAbstract {
     @NotNull
     private MemoryType type;
     @NotBlank
-    private String title;
+    private String name;
+    @NotBlank
     private String description;
     private ValidityScope validityScope;
     private List<String> scopes = new ArrayList<>();
     private List<String> tags = new ArrayList<>();
     private String version;
     private Integer priority; // 0-10
-    private SourceType source;
+    private SourceType sourceType;
     @Builder.Default
     private MemoryStatus status = MemoryStatus.DRAFT;
     private Instant validFrom;
@@ -60,7 +60,7 @@ public class Memory extends DomainAbstract {
     @Singular
     private List<String> useCases = new ArrayList<>();
 
-    private BaseContent content;       // Polymorphic content
+    private BaseContent content;
 
     @Singular
     @ChildDomain(cdClass = Characteristic.class, ccClass = CharacteristicCriteria.class)
@@ -122,7 +122,19 @@ public class Memory extends DomainAbstract {
     enum ImpactLevel {LOW, MEDIUM, HIGH}
 
     public enum FN {
-        name, description
+        name,
+        description,
+        type,
+        validityScope,
+        version,
+        priority,
+        sourceType,
+        status,
+        validFrom,
+        validTo,
+        content,
+        tags,
+        scopes
     }
 
     // ============================================================
