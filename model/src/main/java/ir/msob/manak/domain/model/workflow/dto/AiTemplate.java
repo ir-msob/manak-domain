@@ -1,6 +1,6 @@
 package ir.msob.manak.domain.model.workflow.dto;
 
-import ir.msob.manak.domain.model.chat.chat.ChatRequestDto;
+import ir.msob.manak.domain.model.ai.chat.ChatRequestDto;
 import lombok.*;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.chat.embedding;
+package ir.msob.manak.domain.model.ai.embedding;
 
 import ir.msob.jima.core.commons.shared.ModelType;
 import lombok.*;

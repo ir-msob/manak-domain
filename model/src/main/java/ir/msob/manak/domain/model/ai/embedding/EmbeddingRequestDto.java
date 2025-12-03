@@ -1,11 +1,10 @@
-package ir.msob.manak.domain.model.chat.embedding;
+package ir.msob.manak.domain.model.ai.embedding;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.msob.jima.core.commons.domain.DomainInfo;
 import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.jima.core.commons.shared.ModelType;
 import ir.msob.manak.domain.model.common.ServiceName;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 

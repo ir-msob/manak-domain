@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.chat.embedding;
+package ir.msob.manak.domain.model.ai.embedding;
 
 import lombok.*;
 
@@ -9,6 +9,5 @@ import lombok.*;
 @ToString
 @Builder
 public class EmbeddingOptions {
-    private String model;
     private Integer dimensions;
 }

@@ -1,6 +1,5 @@
-package ir.msob.manak.domain.model.chat.modelspecification;
+package ir.msob.manak.domain.model.ai.modelspecification;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import ir.msob.jima.core.commons.domain.DtoInfo;
 import ir.msob.manak.core.model.jima.domain.Dto;
 import ir.msob.manak.domain.model.common.ServiceName;

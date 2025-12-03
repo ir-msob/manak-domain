@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.chat.chat;
+package ir.msob.manak.domain.model.ai.chat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.msob.jima.core.commons.domain.DomainInfo;

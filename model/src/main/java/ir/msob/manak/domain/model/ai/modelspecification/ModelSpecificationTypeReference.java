@@ -1,4 +1,4 @@
-package ir.msob.manak.domain.model.chat.modelspecification;
+package ir.msob.manak.domain.model.ai.modelspecification;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import ir.msob.jima.core.commons.channel.ChannelMessage;
