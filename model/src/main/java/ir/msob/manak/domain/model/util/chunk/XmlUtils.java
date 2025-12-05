@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MarkdownUtils implements FileStructureUtil {
+public class XmlUtils implements FileStructureUtil {
 
-    private static final Pattern HEADING = Pattern.compile("(?m)^(#{1,6})\\s+.*$");
+    // find tag openings like <tag ...> or </tag ...>
+    private static final Pattern TAG_START = Pattern.compile("(?=<\\/?[A-Za-z_][\\w:\\-\\.]*\\b)");
 
     @Override
     public String preprocessText(String text) {
-        // per request: no normalization, return original
         return text == null ? "" : text;
     }
 
@@ -21,7 +21,7 @@ public class MarkdownUtils implements FileStructureUtil {
         if (text == null || text.isBlank()) return Collections.emptyList();
 
         List<Section> out = new ArrayList<>();
-        Matcher m = HEADING.matcher(text);
+        Matcher m = TAG_START.matcher(text);
 
         List<Integer> starts = new ArrayList<>();
         while (m.find()) {
@@ -29,28 +29,16 @@ public class MarkdownUtils implements FileStructureUtil {
         }
 
         if (starts.isEmpty()) {
-            out.add(new Section(text, null));
+            out.add(new Section(text, computeLineFromIndex(text, 0)));
             return out;
         }
 
-        // If there is content before first heading, include it as a section
-        int prevCharIndex = 0;
         for (int i = 0; i < starts.size(); i++) {
-            int startIndex = starts.get(i);
-            int endIndex = (i + 1 < starts.size()) ? starts.get(i + 1) : text.length();
-            String part = text.substring(startIndex, endIndex);
-            int line = computeLineFromIndex(text, startIndex);
+            int start = starts.get(i);
+            int end = (i + 1 < starts.size()) ? starts.get(i + 1) : text.length();
+            String part = text.substring(start, end);
+            int line = computeLineFromIndex(text, start);
             out.add(new Section(part, line));
-            prevCharIndex = endIndex;
-        }
-
-        // If anything before first heading (text[0..firstStart)), keep it as section with null startLine
-        int firstStart = starts.get(0);
-        if (firstStart > 0) {
-            String prefix = text.substring(0, firstStart);
-            if (!prefix.isBlank()) {
-                out.add(0, new Section(prefix, null));
-            }
         }
 
         return out;

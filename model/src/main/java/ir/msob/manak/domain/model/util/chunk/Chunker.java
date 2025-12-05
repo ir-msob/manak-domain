@@ -9,16 +9,16 @@ import java.util.List;
 
 public class Chunker {
 
-    private static String preprocessText(String text, FileType fileType) {
-        return switch (fileType) {
-            case MARKDOWN -> MarkdownUtils.stripFrontMatter(text);
-        };
-    }
-
-    private static List<String> extractSections(String text, FileType fileType) {
-        return switch (fileType) {
-            case MARKDOWN -> MarkdownUtils.splitIntoSections(text);
-        };
+    public enum FileType {
+        MARKDOWN,
+        XML,
+        POM, // alias for XML
+        JAVA,
+        YAML,
+        PROPERTIES,
+        TYPESCRIPT,
+        JSON,
+        GENERIC
     }
 
     @SneakyThrows
@@ -36,19 +36,66 @@ public class Chunker {
         if (overlap < 0)
             throw new IllegalArgumentException("overlap cannot be negative");
 
-        String cleaned = preprocessText(text, fileType);
-        List<String> sections = extractSections(cleaned, fileType);
+        FileStructureUtil util = getUtilFor(fileType);
+
+        String cleaned = util.preprocessText(text); // now returns original text (no normalization)
+        List<Section> sections = util.splitIntoSections(cleaned);
 
         List<ChunkFile> output = new ArrayList<>();
         long index = 0L;
 
-        for (String section : sections) {
-            List<String> sectionChunks = splitByWords(section, chunkSize, overlap);
-            for (String chunk : sectionChunks)
-                output.add(new ChunkFile(chunk, index++));
+        boolean lineBased = isLineBased(fileType);
+
+        for (Section section : sections) {
+            if (lineBased) {
+                List<StringHolder> holders = splitByLinesWithLineNumbers(section.getText(), chunkSize, overlap);
+                for (StringHolder sh : holders) {
+                    Integer chunkStartLine = section.getStartLine() == null ? null
+                            : section.getStartLine() + sh.getRelativeStartLine(); // 1-based
+                    Integer chunkEndLine = section.getStartLine() == null ? null
+                            : section.getStartLine() + sh.getRelativeEndLine();
+
+                    output.add(ChunkFile.builder()
+                            .text(sh.getText())
+                            .index(index++)
+                            .startLine(chunkStartLine)
+                            .endLine(chunkEndLine)
+                            .build());
+                }
+            } else {
+                // word-based splitting without line numbers
+                List<String> chunks = splitByWords(section.getText(), chunkSize, overlap);
+                for (String c : chunks) {
+                    output.add(ChunkFile.builder()
+                            .text(c)
+                            .index(index++)
+                            .startLine(null)
+                            .endLine(null)
+                            .build());
+                }
+            }
         }
 
         return output;
+    }
+
+    private static boolean isLineBased(FileType fileType) {
+        return switch (fileType) {
+            case JAVA, TYPESCRIPT, XML, POM, JSON -> true;
+            default -> false;
+        };
+    }
+
+    private static FileStructureUtil getUtilFor(FileType fileType) {
+        return switch (fileType) {
+            case MARKDOWN -> new MarkdownUtils();
+            case XML, POM -> new XmlUtils();
+            case JAVA -> new JavaUtils();
+            case YAML, PROPERTIES -> new ConfigUtils();
+            case TYPESCRIPT -> new TypeScriptUtils();
+            case JSON -> new JsonUtils();
+            default -> new GenericUtils();
+        };
     }
 
     private static List<String> splitByWords(String text, int chunkSize, int overlap) {
@@ -67,7 +114,47 @@ public class Chunker {
         return chunks;
     }
 
-    public enum FileType {
-        MARKDOWN
+    private static class StringHolder {
+        private final String text;
+        private final int relativeStartLine; // 0-based relative to section
+        private final int relativeEndLine;   // 0-based relative to section
+
+        public StringHolder(String text, int relativeStartLine, int relativeEndLine) {
+            this.text = text;
+            this.relativeStartLine = relativeStartLine;
+            this.relativeEndLine = relativeEndLine;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public int getRelativeStartLine() {
+            return relativeStartLine;
+        }
+
+        public int getRelativeEndLine() {
+            return relativeEndLine;
+        }
+    }
+
+    private static List<StringHolder> splitByLinesWithLineNumbers(String sectionText, int chunkLines, int overlapLines) {
+        String[] lines = sectionText.split("\\R", -1); // keep trailing empty lines
+        List<StringHolder> out = new ArrayList<>();
+        if (lines.length == 0) return out;
+
+        int step = Math.max(1, chunkLines - overlapLines);
+
+        for (int start = 0; start < lines.length; start += step) {
+            int end = Math.min(lines.length, start + chunkLines);
+            StringBuilder sb = new StringBuilder();
+            for (int i = start; i < end; i++) {
+                sb.append(lines[i]);
+                if (i < end - 1) sb.append("\n");
+            }
+            out.add(new StringHolder(sb.toString(), start, end - 1));
+            if (end >= lines.length) break;
+        }
+        return out;
     }
 }
