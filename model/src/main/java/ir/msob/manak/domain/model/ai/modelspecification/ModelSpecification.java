@@ -70,6 +70,6 @@ public class ModelSpecification extends DomainAbstract {
     }
 
     public enum ModelType {
-        TOOLS, THINKING, EMBEDDING, CHAT
+        TOOLS, THINKING, EMBEDDING, CHAT, SUMMARIZER
     }
 }

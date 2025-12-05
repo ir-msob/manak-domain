@@ -9,12 +9,11 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-public class MemoryProperties {
+public class AiProperties {
 
     private Embedding embedding = new Embedding();
     private Summary abstractiveSummary = new Summary();
     private Summary extractiveSummary = new Summary();
-    private Chunk chunk = new Chunk();
 
     @Setter
     @Getter
@@ -35,14 +34,5 @@ public class MemoryProperties {
         private Long maxLength = 150L;
         private Long minLength = 50L;
         private Long textSize = 10L;
-    }
-
-    @Setter
-    @Getter
-    @NoArgsConstructor
-    @ToString
-    public static class Chunk {
-        private Integer chunkSize;
-        private Integer overlap;
     }
 }

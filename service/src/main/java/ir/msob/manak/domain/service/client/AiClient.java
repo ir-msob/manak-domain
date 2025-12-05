@@ -6,6 +6,8 @@ import ir.msob.jima.crud.api.restful.client.RestUtil;
 import ir.msob.manak.domain.model.ai.chat.ChatRequestDto;
 import ir.msob.manak.domain.model.ai.embedding.EmbeddingRequestDto;
 import ir.msob.manak.domain.model.ai.embedding.EmbeddingResponseDto;
+import ir.msob.manak.domain.model.ai.summarizer.SummarizerRequestDto;
+import ir.msob.manak.domain.model.ai.summarizer.SummarizerResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -36,5 +38,16 @@ public class AiClient {
                 .bodyValue(embeddingRequestDto)
                 .retrieve()
                 .bodyToMono(EmbeddingResponseDto.class);
+    }
+
+    public Mono<SummarizerResponseDto> summarize(SummarizerRequestDto summarizerRequestDto) {
+        DomainInfo domainInfo = DomainInfo.info.getAnnotation(summarizerRequestDto.getClass());
+        DtoInfo dtoInfo = DtoInfo.info.getAnnotation(summarizerRequestDto.getClass());
+        return webClient.post()
+                .uri(builder -> builder.host(dtoInfo.serviceName())
+                        .path(RestUtil.uri(dtoInfo, domainInfo)).build())
+                .bodyValue(summarizerRequestDto)
+                .retrieve()
+                .bodyToMono(SummarizerResponseDto.class);
     }
 }
